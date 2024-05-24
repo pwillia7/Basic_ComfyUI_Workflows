@@ -26,7 +26,7 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
  - hiresfix
  ![hiresfix](./WorkflowImages/hiresfix.png)
  - InstantID
- ![InstantID](./WorkflowImages/instantid.png)
+ ![InstantID](./WorkflowImages/instandid.png)
  - Facedetailer
  ![Facedetailer](./WorkflowImages/facedetailer.png)
  - promptsfromfile
