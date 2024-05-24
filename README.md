@@ -6,18 +6,34 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
  - txt2img
  ![txt2img](./WorkflowImages/txt2img.png)
  - txt2imglora
+ ![txt2imglora](./WorkflowImages/txt2imglora.png)
  - img2img
+ ![img2img](./WorkflowImages/img2img.png)
  - img2imglora
+ ![img2imglora](./WorkflowImages/img2imglora.png)
  - controlnet
+ ![controlnet](./WorkflowImages/controlnet.png)
  - contolnet-multi (2 controlnet models)
+ ![controlnetmulti](./WorkflowImages/controlnetmulti.png)
  - IPAdapter
- - controlnet+IPAdapter
+ ![IPAdapter](./WorkflowImages/ipadapter.png)
+ - IPAdapter+controlnet
+ ![IPAdapter+controlnet](./WorkflowImages/ipadapter+controlnet.png)
  - inpainting
+ ![inpainting](./WorkflowImages/inpainting.png)
  - outpainting
+ ![outpainting](./WorkflowImages/outpainting.png)
  - hiresfix
+ ![hiresfix](./WorkflowImages/hiresfix.png)
  - InstantID
+ ![InstantID](./WorkflowImages/InstantID.png)
  - Facedetailer
+ ![Facedetailer](./WorkflowImages/Facedetailer.png)
  - promptsfromfile
+ ![promptsfromfile](./WorkflowImages/promptsfromfile.png)
  - xyzplot (for sampler config. Use prompts from file for batch prompts)
+ ![xyzplot](./WorkflowImages/xyzplot.png)
  - upscaleSUPIR
+ ![upscaleSUPIR](./WorkflowImages/upscaleSUPIR.png)
  - InstructPix2Pix
+![InstructPix2Pix](./WorkflowImages/InstructPix2Pix.png)
