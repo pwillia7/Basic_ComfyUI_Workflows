@@ -4,6 +4,7 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
 
 ## Workflows
  - txt2img
+ ![txt2img](./WorkflowImages/txt2img.png)
  - txt2imglora
  - img2img
  - img2imglora
