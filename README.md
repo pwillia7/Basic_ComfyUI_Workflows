@@ -1,3 +1,11 @@
+## Updates
+
+**5/24/24**
+Cleaned up all workflows, added notes, improved IPA and outpaint workflows
+New workflows: InstantID, Instructpix2pix, controlnetmulti, 
+
+## About
+
 This is meant to be a good foundation to start using ComfyUI in a basic way. Should be familiar to those coming from A1111. 
 
 You can import the json files or the pngs into Comfy to use the workflows. Most workflows are built for SDXL by default but can be changed easily to work with other SD versions.
