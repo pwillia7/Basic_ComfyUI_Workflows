@@ -1,6 +1,6 @@
 {
-  "last_node_id": 25,
-  "last_link_id": 32,
+  "last_node_id": 27,
+  "last_link_id": 41,
   "nodes": [
     {
       "id": 24,
@@ -31,8 +31,8 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            28,
-            30
+            36,
+            39
           ],
           "shape": 3,
           "slot_index": 1
@@ -85,168 +85,6 @@
         1024,
         1024,
         1
-      ]
-    },
-    {
-      "id": 11,
-      "type": "PrimitiveNode",
-      "pos": [
-        -376,
-        370
-      ],
-      "size": [
-        243.3767531334306,
-        76.00000095367432
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            7
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "title": "Negative prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        "(low quality, worst quality:1.4), nsfw"
-      ]
-    },
-    {
-      "id": 9,
-      "type": "PrimitiveNode",
-      "pos": [
-        -379,
-        226
-      ],
-      "size": [
-        252.3767531334306,
-        94.91156294999303
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            5
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "title": "Prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        "a giant glittery cantaloupe on the beach at sunset\n"
-      ]
-    },
-    {
-      "id": 10,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -82,
-        372
-      ],
-      "size": {
-        "0": 210,
-        "1": 54
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 30
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 7,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            11
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "(low quality, worst quality:1.4), nsfw"
-      ]
-    },
-    {
-      "id": 8,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -78,
-        262
-      ],
-      "size": {
-        "0": 210,
-        "1": 54
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 28
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 5,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            10
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "a giant glittery cantaloupe on the beach at sunset\n"
       ]
     },
     {
@@ -387,12 +225,12 @@
         721,
         358
       ],
-      "size": [
-        210,
-        122.31404958677686
-      ],
+      "size": {
+        "0": 210,
+        "1": 122.31404876708984
+      },
       "flags": {},
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "properties": {
         "text": ""
@@ -451,12 +289,12 @@
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 10
+          "link": 40
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 11
+          "link": 33
         },
         {
           "name": "latent_image",
@@ -478,7 +316,7 @@
         "Node name for S&R": "KSamplerSetting"
       },
       "widgets_values": [
-        216762953118853,
+        661201155503038,
         "randomize",
         15,
         4.5,
@@ -499,7 +337,7 @@
         "1": 76.0000228881836
       },
       "flags": {},
-      "order": 5,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -531,10 +369,10 @@
       ],
       "size": {
         "0": 210,
-        "1": 76
+        "1": 76.00000762939453
       },
       "flags": {},
-      "order": 6,
+      "order": 4,
       "mode": 0,
       "outputs": [
         {
@@ -564,10 +402,10 @@
         970,
         -127
       ],
-      "size": [
-        476.6567531334308,
-        752.761562949993
-      ],
+      "size": {
+        "0": 476.65673828125,
+        "1": 752.7615356445312
+      },
       "flags": {},
       "order": 13,
       "mode": 0,
@@ -586,41 +424,209 @@
         3,
         1
       ]
+    },
+    {
+      "id": 26,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        -136,
+        157
+      ],
+      "size": [
+        210,
+        218
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 39
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 38,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 41,
+          "widget": {
+            "name": "text_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            40
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "a giant glittery cantaloupe on the beach at sunset\n",
+        "a giant glittery cantaloupe on the beach at sunset\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 27,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        -141,
+        425
+      ],
+      "size": {
+        "0": 210,
+        "1": 218
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 36
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 34,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 35,
+          "widget": {
+            "name": "text_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            33
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "(low quality, worst quality:1.4), nsfw",
+        "(low quality, worst quality:1.4), nsfw"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 11,
+      "type": "PrimitiveNode",
+      "pos": [
+        -422,
+        368
+      ],
+      "size": {
+        "0": 243.3767547607422,
+        "1": 76
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            34,
+            35
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "title": "Negative prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "(low quality, worst quality:1.4), nsfw"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "PrimitiveNode",
+      "pos": [
+        -430,
+        204
+      ],
+      "size": {
+        "0": 252.3767547607422,
+        "1": 94.91156005859375
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            38,
+            41
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "a giant glittery cantaloupe on the beach at sunset\n"
+      ]
     }
   ],
   "links": [
-    [
-      5,
-      9,
-      0,
-      8,
-      1,
-      "STRING"
-    ],
-    [
-      7,
-      11,
-      0,
-      10,
-      1,
-      "STRING"
-    ],
-    [
-      10,
-      8,
-      0,
-      12,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      11,
-      10,
-      0,
-      12,
-      2,
-      "CONDITIONING"
-    ],
     [
       12,
       13,
@@ -678,28 +684,12 @@
       "STRING"
     ],
     [
-      28,
-      24,
-      1,
-      8,
-      0,
-      "CLIP"
-    ],
-    [
       29,
       24,
       0,
       12,
       0,
       "MODEL"
-    ],
-    [
-      30,
-      24,
-      1,
-      10,
-      0,
-      "CLIP"
     ],
     [
       31,
@@ -716,6 +706,70 @@
       18,
       1,
       "VAE"
+    ],
+    [
+      33,
+      27,
+      0,
+      12,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      34,
+      11,
+      0,
+      27,
+      1,
+      "STRING"
+    ],
+    [
+      35,
+      11,
+      0,
+      27,
+      2,
+      "STRING"
+    ],
+    [
+      36,
+      24,
+      1,
+      27,
+      0,
+      "CLIP"
+    ],
+    [
+      38,
+      9,
+      0,
+      26,
+      1,
+      "STRING"
+    ],
+    [
+      39,
+      24,
+      1,
+      26,
+      0,
+      "CLIP"
+    ],
+    [
+      40,
+      26,
+      0,
+      12,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      41,
+      9,
+      0,
+      26,
+      2,
+      "STRING"
     ]
   ],
   "groups": [
@@ -735,10 +789,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9090909090909091,
+      "scale": 0.9090909090909092,
       "offset": [
-        728.0432468665699,
-        220.13843705000664
+        614.0951268665683,
+        169.5496570500066
       ]
     }
   },
