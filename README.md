@@ -22,7 +22,7 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
  - img2imglora
  ![img2imglora](./WorkflowImages/img2imglora.png)
  - img2img_stablecascade
-![img2img_stablecascade](./WorkflowImages/InstructPix2Pix.png)
+![img2img_stablecascade](./WorkflowImages/img2img_stablecascade.png)
 - imgprompt_stablecascade
 ![imgprompt_stablecascade](./WorkflowImages/imgprompt_stablecascade.png)
  - controlnet
