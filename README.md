@@ -26,9 +26,9 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
  - hiresfix
  ![hiresfix](./WorkflowImages/hiresfix.png)
  - InstantID
- ![InstantID](./WorkflowImages/InstantID.png)
+ ![InstantID](./WorkflowImages/instantid.png)
  - Facedetailer
- ![Facedetailer](./WorkflowImages/Facedetailer.png)
+ ![Facedetailer](./WorkflowImages/facedetailer.png)
  - promptsfromfile
  ![promptsfromfile](./WorkflowImages/promptsfromfile.png)
  - xyzplot (for sampler config. Use prompts from file for batch prompts)
@@ -36,4 +36,4 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
  - upscaleSUPIR
  ![upscaleSUPIR](./WorkflowImages/upscaleSUPIR.png)
  - InstructPix2Pix
-![InstructPix2Pix](./WorkflowImages/InstructPix2Pix.png)
+![InstructPix2Pix](./WorkflowImages/instructpix2pix.png)
