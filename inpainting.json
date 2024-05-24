@@ -1,123 +1,264 @@
 {
-  "last_node_id": 12,
-  "last_link_id": 20,
+  "last_node_id": 29,
+  "last_link_id": 26,
   "nodes": [
     {
-      "id": 1,
-      "type": "EZLoadImgFromUrlNode",
+      "id": 10,
+      "type": "LoadImage",
       "pos": [
-        2420,
-        1080
+        2440,
+        1210
       ],
       "size": {
         "0": 315,
-        "1": 78
+        "1": 314
       },
       "flags": {},
       "order": 0,
       "mode": 0,
       "outputs": [
         {
-          "name": "image",
+          "name": "IMAGE",
           "type": "IMAGE",
-          "links": [],
+          "links": [
+            17
+          ],
           "shape": 3,
           "slot_index": 0
         },
         {
-          "name": "mask",
+          "name": "MASK",
           "type": "MASK",
-          "links": null,
-          "shape": 3
+          "links": [
+            26
+          ],
+          "shape": 3,
+          "slot_index": 1
         }
       ],
       "properties": {
-        "Node name for S&R": "EZLoadImgFromUrlNode"
+        "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        ""
+        "clipspace/clipspace-mask-510668.png [input]",
+        "image"
       ]
     },
     {
-      "id": 9,
-      "type": "VAEDecode",
+      "id": 28,
+      "type": "Note",
       "pos": [
-        3890,
-        840
+        2213,
+        1231
+      ],
+      "size": [
+        210,
+        120.98474395091466
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Right click and \"Open in MaskEditor\" to generate mask for image\n\nMake sure to download inpainting model"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        2439,
+        1057
       ],
       "size": {
-        "0": 210,
-        "1": 46
+        "0": 315,
+        "1": 98
       },
       "flags": {},
-      "order": 7,
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2,
+            3
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            10,
+            16
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "juggerxlInpaint_juggerInpaintV8.safetensors"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2892,
+        1108
+      ],
+      "size": [
+        210,
+        108.88474395091453
+      ],
+      "flags": {},
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 12
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 10
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
         }
       ],
       "outputs": [
         {
-          "name": "IMAGE",
-          "type": "IMAGE",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
           "links": [
-            11
+            14
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "ugly, deformed, cartoon"
+      ]
     },
     {
-      "id": 7,
-      "type": "SaveImage",
+      "id": 4,
+      "type": "CLIPTextEncode",
       "pos": [
-        4150,
-        840
+        2893,
+        949
       ],
       "size": [
-        315,
-        270
+        210,
+        113.68474395091471
       ],
       "flags": {},
-      "order": 8,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 11
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
         }
       ],
-      "properties": {},
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
       "widgets_values": [
-        "ComfyUI"
+        "guy fieri wearing sunglasses"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "VAEEncodeForInpaint",
+      "pos": [
+        2795,
+        1271
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 17
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 16
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            19
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncodeForInpaint"
+      },
+      "widgets_values": [
+        5
       ]
     },
     {
       "id": 11,
       "type": "KSampler //Inspire",
       "pos": [
-        3535,
-        790
+        3157,
+        941
       ],
       "size": {
         "0": 315,
         "1": 358
       },
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -156,13 +297,13 @@
         "Node name for S&R": "KSampler //Inspire"
       },
       "widgets_values": [
-        250489423513342,
+        1072084897773189,
         "randomize",
         20,
-        8,
+        7,
         "euler",
         "normal",
-        1,
+        0.9,
         "GPU(=A1111)",
         "incremental",
         0,
@@ -170,225 +311,94 @@
       ]
     },
     {
-      "id": 12,
-      "type": "VAEEncodeForInpaint",
+      "id": 29,
+      "type": "Note",
       "pos": [
-        2889,
-        1261
+        3157,
+        1346
+      ],
+      "size": [
+        310.2073240066534,
+        108.06315231481403
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Change steps, cfg, sampler_name and scheduler to match model guidelines.\n\nChange denoise strength to choose how much of original image is present in mask."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": [
+        3498,
+        1067
       ],
       "size": {
         "0": 315,
-        "1": 98
+        "1": 270
       },
       "flags": {},
-      "order": 5,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
-          "name": "pixels",
+          "name": "images",
           "type": "IMAGE",
-          "link": 17
+          "link": 11
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        3504,
+        945
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 12
         },
         {
           "name": "vae",
           "type": "VAE",
-          "link": 16
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "link": 18
+          "link": 10
         }
       ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            19
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEEncodeForInpaint"
-      },
-      "widgets_values": [
-        6
-      ]
-    },
-    {
-      "id": 4,
-      "type": "CLIPTextEncode",
-      "pos": [
-        3040,
-        740
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            13
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "guy fieri on kefkas body, final fantasy"
-      ]
-    },
-    {
-      "id": 5,
-      "type": "CLIPTextEncode",
-      "pos": [
-        3040,
-        1000
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            14
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "ugly, deformed, cartoon"
-      ]
-    },
-    {
-      "id": 3,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        2430,
-        930
-      ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            20
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            2,
-            3
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            10,
-            16
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "copaxTimelessxlSDXL1_v11Lightning.safetensors"
-      ]
-    },
-    {
-      "id": 10,
-      "type": "LoadImage",
-      "pos": [
-        2440,
-        1210
-      ],
-      "size": {
-        "0": 315,
-        "1": 314
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
       "outputs": [
         {
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            17
+            11
           ],
           "shape": 3,
           "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [
-            18
-          ],
-          "shape": 3,
-          "slot_index": 1
         }
       ],
       "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "clipspace/clipspace-mask-1663440.png [input]",
-        "image"
-      ]
+        "Node name for S&R": "VAEDecode"
+      }
     }
   ],
   "links": [
@@ -465,14 +475,6 @@
       "IMAGE"
     ],
     [
-      18,
-      10,
-      1,
-      12,
-      2,
-      "MASK"
-    ],
-    [
       19,
       12,
       0,
@@ -487,16 +489,24 @@
       11,
       0,
       "MODEL"
+    ],
+    [
+      26,
+      10,
+      1,
+      12,
+      2,
+      "MASK"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.7715610000000017,
+      "scale": 1,
       "offset": [
-        -3775.497726208785,
-        -819.930620524895
+        -1877.7982330975624,
+        -813.881334132996
       ]
     }
   },

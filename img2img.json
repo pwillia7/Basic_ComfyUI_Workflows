@@ -1,13 +1,13 @@
 {
-  "last_node_id": 11,
-  "last_link_id": 16,
+  "last_node_id": 13,
+  "last_link_id": 17,
   "nodes": [
     {
       "id": 1,
       "type": "EZLoadImgFromUrlNode",
       "pos": [
-        2420,
-        1080
+        2428,
+        1079
       ],
       "size": {
         "0": 315,
@@ -20,9 +20,7 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "links": [
-            4
-          ],
+          "links": [],
           "shape": 3,
           "slot_index": 0
         },
@@ -41,47 +39,11 @@
       ]
     },
     {
-      "id": 10,
-      "type": "LoadImage",
+      "id": 6,
+      "type": "VAEEncode",
       "pos": [
-        2440,
-        1210
-      ],
-      "size": {
-        "0": 315,
-        "1": 314
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": null,
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "birdsheartflower.png",
-        "image"
-      ]
-    },
-    {
-      "id": 9,
-      "type": "VAEDecode",
-      "pos": [
-        3890,
-        840
+        2811,
+        1472
       ],
       "size": {
         "0": 210,
@@ -92,56 +54,53 @@
       "mode": 0,
       "inputs": [
         {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 16
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 17
         },
         {
           "name": "vae",
           "type": "VAE",
-          "link": 10
+          "link": 5
         }
       ],
       "outputs": [
         {
-          "name": "IMAGE",
-          "type": "IMAGE",
+          "name": "LATENT",
+          "type": "LATENT",
           "links": [
-            11
+            15
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "VAEDecode"
+        "Node name for S&R": "VAEEncode"
       }
     },
     {
-      "id": 7,
-      "type": "SaveImage",
+      "id": 12,
+      "type": "Note",
       "pos": [
-        4150,
-        840
+        2212,
+        1089
       ],
       "size": {
-        "0": 315,
+        "0": 210,
         "1": 58
       },
       "flags": {},
-      "order": 8,
+      "order": 1,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 11
-        }
-      ],
-      "properties": {},
+      "properties": {
+        "text": ""
+      },
       "widgets_values": [
-        "ComfyUI"
-      ]
+        "Use URL loader for non local images"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     },
     {
       "id": 3,
@@ -192,61 +151,61 @@
         "Node name for S&R": "CheckpointLoaderSimple"
       },
       "widgets_values": [
-        "copaxTimelessxlSDXL1_v11Lightning.safetensors"
+        "copaxTimelessxlSDXL1_v12.safetensors"
       ]
     },
     {
-      "id": 4,
-      "type": "CLIPTextEncode",
+      "id": 10,
+      "type": "LoadImage",
       "pos": [
-        3040,
-        740
+        2440,
+        1210
       ],
       "size": {
-        "0": 400,
-        "1": 200
+        "0": 315,
+        "1": 314
       },
       "flags": {},
       "order": 3,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 2
-        }
-      ],
       "outputs": [
         {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
+          "name": "IMAGE",
+          "type": "IMAGE",
           "links": [
-            13
+            17
           ],
           "shape": 3,
           "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode"
+        "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        ""
+        "FF6_Kefkaart.webp",
+        "image"
       ]
     },
     {
       "id": 5,
       "type": "CLIPTextEncode",
       "pos": [
-        3040,
-        1000
+        2849,
+        1028
       ],
       "size": {
         "0": 400,
         "1": 200
       },
       "flags": {},
-      "order": 4,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -270,63 +229,61 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        ""
+        "ugly, bad hands, poorly drawn, cartoon"
       ]
     },
     {
-      "id": 6,
-      "type": "VAEEncode",
+      "id": 4,
+      "type": "CLIPTextEncode",
       "pos": [
-        2904,
-        1324
+        2848,
+        779
       ],
       "size": {
-        "0": 210,
-        "1": 46
+        "0": 400,
+        "1": 200
       },
       "flags": {},
       "order": 5,
       "mode": 0,
       "inputs": [
         {
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 4
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 5
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
         }
       ],
       "outputs": [
         {
-          "name": "LATENT",
-          "type": "LATENT",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
           "links": [
-            15
+            13
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "VAEEncode"
-      }
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Kefka from final fantasy 6, masterpiece, 3d rendering, unreal engine 6"
+      ]
     },
     {
       "id": 11,
       "type": "KSampler //Inspire",
       "pos": [
-        3520,
-        804
+        3365,
+        782
       ],
       "size": {
         "0": 315,
         "1": 358
       },
       "flags": {},
-      "order": 6,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -365,17 +322,107 @@
         "Node name for S&R": "KSampler //Inspire"
       },
       "widgets_values": [
-        0,
+        473146485257554,
         "randomize",
-        20,
+        40,
         8,
-        "euler",
-        "normal",
-        1,
+        "dpmpp_3m_sde_gpu",
+        "exponential",
+        0.7000000000000001,
         "GPU(=A1111)",
         "incremental",
         0,
         0
+      ]
+    },
+    {
+      "id": 13,
+      "type": "Note",
+      "pos": [
+        3363,
+        1175
+      ],
+      "size": [
+        308.14537827559434,
+        167.84571505036047
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Change steps, cfg, sampler_name, and scheduler to match model guidelines. \n\nDenoise strength sets % of original image pixels kept in place. 1=no information kept."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        3709,
+        1080
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 16
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": [
+        3301,
+        1415
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
       ]
     }
   ],
@@ -395,14 +442,6 @@
       5,
       0,
       "CLIP"
-    ],
-    [
-      4,
-      1,
-      0,
-      6,
-      0,
-      "IMAGE"
     ],
     [
       5,
@@ -467,16 +506,24 @@
       9,
       0,
       "LATENT"
+    ],
+    [
+      17,
+      10,
+      0,
+      6,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8264462809917362,
+      "scale": 0.8264462809917354,
       "offset": [
-        -2446.3253782755955,
-        -633.5857150503607
+        -1801.5091001499893,
+        -703.1313483182372
       ]
     }
   },

@@ -1,0 +1,746 @@
+{
+  "last_node_id": 25,
+  "last_link_id": 32,
+  "nodes": [
+    {
+      "id": 24,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -375,
+        -109
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            29,
+            31
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            28,
+            30
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            32
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "copaxTimelessxlSDXL1_v12.safetensors"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -372,
+        52
+      ],
+      "size": {
+        "0": 210,
+        "1": 106
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            12
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 11,
+      "type": "PrimitiveNode",
+      "pos": [
+        -376,
+        370
+      ],
+      "size": [
+        243.3767531334306,
+        76.00000095367432
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            7
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "title": "Negative prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "(low quality, worst quality:1.4), nsfw"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "PrimitiveNode",
+      "pos": [
+        -379,
+        226
+      ],
+      "size": [
+        252.3767531334306,
+        94.91156294999303
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            5
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "a giant glittery cantaloupe on the beach at sunset\n"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -82,
+        372
+      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 30
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 7,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "(low quality, worst quality:1.4), nsfw"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -78,
+        262
+      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 28
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 5,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a giant glittery cantaloupe on the beach at sunset\n"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "KSamplerXYZ",
+      "pos": [
+        477,
+        229
+      ],
+      "size": {
+        "0": 210,
+        "1": 154
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "setting",
+          "type": "DICT",
+          "link": 13
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 31
+        },
+        {
+          "name": "seed",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "STRING",
+          "link": 26,
+          "widget": {
+            "name": "steps"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "STRING",
+          "link": 27,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "sampler_name",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "sampler_name"
+          }
+        },
+        {
+          "name": "scheduler",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "scheduler"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            15
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerXYZ"
+      },
+      "widgets_values": [
+        "465465,56489,195199",
+        "20,30,40",
+        "4,5,6",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 18,
+      "type": "VAEDecodeBatched",
+      "pos": [
+        721,
+        230
+      ],
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 15
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17,
+            18
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeBatched"
+      },
+      "widgets_values": [
+        3
+      ]
+    },
+    {
+      "id": 25,
+      "type": "Note",
+      "pos": [
+        721,
+        358
+      ],
+      "size": [
+        210,
+        122.31404958677686
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "VAEDecodeBatched size and GridImage 'x' should be number of cfg/step options.\n\nOther settings can be overridden in KSamplerXYZ as shown."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 19,
+      "type": "PreviewImage",
+      "pos": [
+        512,
+        -103
+      ],
+      "size": {
+        "0": 389.2582092285156,
+        "1": 259.1168518066406
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 12,
+      "type": "KSamplerSetting",
+      "pos": [
+        176,
+        1
+      ],
+      "size": {
+        "0": 210,
+        "1": 262
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 29
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 10
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 11
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "DICT",
+          "type": "DICT",
+          "links": [
+            13
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSetting"
+      },
+      "widgets_values": [
+        216762953118853,
+        "randomize",
+        15,
+        4.5,
+        "dpmpp_3m_sde_gpu",
+        "exponential",
+        1
+      ]
+    },
+    {
+      "id": 23,
+      "type": "PrimitiveNode",
+      "pos": [
+        191.80005493164057,
+        503.20000610351565
+      ],
+      "size": {
+        "0": 210,
+        "1": 76.0000228881836
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            27
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "cfg"
+          }
+        }
+      ],
+      "title": "CFGs",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "4,5,6"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "PrimitiveNode",
+      "pos": [
+        190.80005493164057,
+        374.20000610351565
+      ],
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            26
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "title": "Steps",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "20,30,40"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "GridImage",
+      "pos": [
+        970,
+        -127
+      ],
+      "size": [
+        476.6567531334308,
+        752.761562949993
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GridImage"
+      },
+      "widgets_values": [
+        "ComfyUI-Grid",
+        3,
+        1
+      ]
+    }
+  ],
+  "links": [
+    [
+      5,
+      9,
+      0,
+      8,
+      1,
+      "STRING"
+    ],
+    [
+      7,
+      11,
+      0,
+      10,
+      1,
+      "STRING"
+    ],
+    [
+      10,
+      8,
+      0,
+      12,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      10,
+      0,
+      12,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      12,
+      13,
+      0,
+      12,
+      3,
+      "LATENT"
+    ],
+    [
+      13,
+      12,
+      0,
+      14,
+      0,
+      "DICT"
+    ],
+    [
+      15,
+      14,
+      0,
+      18,
+      0,
+      "LATENT"
+    ],
+    [
+      17,
+      18,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      18,
+      18,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      22,
+      0,
+      14,
+      3,
+      "STRING"
+    ],
+    [
+      27,
+      23,
+      0,
+      14,
+      4,
+      "STRING"
+    ],
+    [
+      28,
+      24,
+      1,
+      8,
+      0,
+      "CLIP"
+    ],
+    [
+      29,
+      24,
+      0,
+      12,
+      0,
+      "MODEL"
+    ],
+    [
+      30,
+      24,
+      1,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      31,
+      24,
+      0,
+      14,
+      1,
+      "MODEL"
+    ],
+    [
+      32,
+      24,
+      2,
+      18,
+      1,
+      "VAE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "X/Y/Z Inputs",
+      "bounding": [
+        161,
+        286,
+        293,
+        306
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9090909090909091,
+      "offset": [
+        728.0432468665699,
+        220.13843705000664
+      ]
+    }
+  },
+  "version": 0.4
+}

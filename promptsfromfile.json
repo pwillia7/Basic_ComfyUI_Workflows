@@ -1,71 +1,20 @@
 {
-  "last_node_id": 14,
-  "last_link_id": 16,
+  "last_node_id": 18,
+  "last_link_id": 21,
   "nodes": [
-    {
-      "id": 3,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        2204,
-        973
-      ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            1
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            2,
-            3
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            10
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "copaxTimelessxlSDXL1_v12.safetensors"
-      ]
-    },
     {
       "id": 13,
       "type": "UnzipPrompt //Inspire",
       "pos": [
-        2378,
-        864
+        2210,
+        854
       ],
       "size": {
         "0": 279.5999755859375,
         "1": 66
       },
       "flags": {},
-      "order": 4,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -108,73 +57,69 @@
       }
     },
     {
-      "id": 12,
-      "type": "LoadPromptsFromFile //Inspire",
+      "id": 3,
+      "type": "CheckpointLoaderSimple",
       "pos": [
-        2045,
-        861
+        1871,
+        706
       ],
       "size": {
         "0": 315,
-        "1": 58
+        "1": 98
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "outputs": [
         {
-          "name": "ZIPPED_PROMPT",
-          "type": "ZIPPED_PROMPT",
+          "name": "MODEL",
+          "type": "MODEL",
           "links": [
-            13
+            17
           ],
-          "shape": 6,
+          "shape": 3,
           "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2,
+            3
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            10
+          ],
+          "shape": 3,
+          "slot_index": 2
         }
       ],
       "properties": {
-        "Node name for S&R": "LoadPromptsFromFile //Inspire"
+        "Node name for S&R": "CheckpointLoaderSimple"
       },
       "widgets_values": [
-        "cas\\ca10.txt"
+        "copaxTimelessxlSDXL1_v12.safetensors"
       ]
-    },
-    {
-      "id": 14,
-      "type": "Note",
-      "pos": [
-        1942,
-        963
-      ],
-      "size": [
-        248.01854000000003,
-        363.9752599999997
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "positive:1girl is walking through street,\nraincoat, yellow umbrella\n\nnegative:text, watermark\n-----------------\npositive:museum, people are looking paintings, abstract\n\nnegative:text, watermark\n---- \npositive:battle ground of space ships\n\nnegative:text, watermark"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
     },
     {
       "id": 4,
       "type": "CLIPTextEncode",
       "pos": [
-        2834,
-        824
+        2520,
+        837
       ],
       "size": [
-        400,
-        200
+        210,
+        54
       ],
       "flags": {},
-      "order": 5,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -196,7 +141,7 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            8
+            18
           ],
           "shape": 3,
           "slot_index": 0
@@ -213,15 +158,15 @@
       "id": 5,
       "type": "CLIPTextEncode",
       "pos": [
-        2827,
-        1054
+        2521,
+        936
       ],
       "size": [
-        400,
-        200
+        210,
+        54
       ],
       "flags": {},
-      "order": 6,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -243,7 +188,7 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            7
+            19
           ],
           "shape": 3,
           "slot_index": 0
@@ -260,22 +205,22 @@
       "id": 11,
       "type": "EmptyLatentImage",
       "pos": [
-        2438,
-        1117
+        2217,
+        1047
       ],
       "size": {
         "0": 315,
         "1": 106
       },
       "flags": {},
-      "order": 3,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            12
+            20
           ],
           "shape": 3,
           "slot_index": 0
@@ -291,87 +236,99 @@
       ]
     },
     {
-      "id": 2,
-      "type": "KSamplerAdvanced",
+      "id": 15,
+      "type": "LoadImage",
       "pos": [
-        3295,
-        831
+        1894.4199609375,
+        1262.0203759765618
       ],
-      "size": {
-        "0": 315,
-        "1": 334
-      },
+      "size": [
+        315,
+        313.99997329711914
+      ],
       "flags": {},
-      "order": 7,
+      "order": 2,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 1
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 8
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 7
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 12
-        }
-      ],
       "outputs": [
         {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            9
-          ],
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null,
           "shape": 3,
           "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
         }
       ],
       "properties": {
-        "Node name for S&R": "KSamplerAdvanced"
+        "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "enable",
-        414935519437499,
-        "randomize",
-        20,
-        6,
-        "dpmpp_2m_sde_gpu",
-        "exponential",
-        0,
-        10000,
-        "disable"
+        "0_uyPv5FeFHvOimMKn.jpg",
+        "image"
       ]
     },
     {
-      "id": 9,
-      "type": "VAEDecode",
+      "id": 16,
+      "type": "VAEEncode",
       "pos": [
-        3638,
-        1111
+        2252.4199609375,
+        1266.0203759765618
       ],
       "size": {
         "0": 210,
         "1": 46
       },
       "flags": {},
-      "order": 8,
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        3108,
+        723
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
           "name": "samples",
           "type": "LATENT",
-          "link": 9
+          "link": 21
         },
         {
           "name": "vae",
@@ -395,18 +352,41 @@
       }
     },
     {
+      "id": 14,
+      "type": "Note",
+      "pos": [
+        1867,
+        955
+      ],
+      "size": [
+        317.1541295565503,
+        181.63186204959675
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Prompt files in: ComfyUI\\custom_nodes\\ComfyUI-Inspire-Pack\\prompts\n\nExample format:\n\npositive:1girl is walking through street,\nraincoat, yellow umbrella\n\nnegative:text, watermark\n-----------------\npositive:museum, people are looking paintings, abstract\n\nnegative:text, watermark\n---- \npositive:battle ground of space ships\n\nnegative:text, watermark"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
       "id": 7,
       "type": "SaveImage",
       "pos": [
-        3655,
-        776
+        2585,
+        1149
       ],
       "size": [
-        315,
-        270
+        671.6658726068872,
+        410.2858440180412
       ],
       "flags": {},
-      "order": 9,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -427,18 +407,106 @@
       "widgets_values": [
         "ComfyUI"
       ]
+    },
+    {
+      "id": 12,
+      "type": "LoadPromptsFromFile //Inspire",
+      "pos": [
+        1873,
+        852
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "ZIPPED_PROMPT",
+          "type": "ZIPPED_PROMPT",
+          "links": [
+            13
+          ],
+          "shape": 6,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadPromptsFromFile //Inspire"
+      },
+      "widgets_values": [
+        "example\\refine3.txt"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "KSampler //Inspire",
+      "pos": [
+        2775,
+        719
+      ],
+      "size": {
+        "0": 315,
+        "1": 358
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 17
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 18
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 19
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler //Inspire"
+      },
+      "widgets_values": [
+        580702873974578,
+        "randomize",
+        40,
+        6,
+        "dpmpp_3m_sde_gpu",
+        "exponential",
+        1,
+        "GPU(=A1111)",
+        "incremental",
+        0,
+        0
+      ]
     }
   ],
   "links": [
     [
-      1,
-      3,
-      0,
-      2,
-      0,
-      "MODEL"
-    ],
-    [
       2,
       3,
       1,
@@ -453,30 +521,6 @@
       5,
       0,
       "CLIP"
-    ],
-    [
-      7,
-      5,
-      0,
-      2,
-      2,
-      "CONDITIONING"
-    ],
-    [
-      8,
-      4,
-      0,
-      2,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      9,
-      2,
-      0,
-      9,
-      0,
-      "LATENT"
     ],
     [
       10,
@@ -493,14 +537,6 @@
       7,
       0,
       "IMAGE"
-    ],
-    [
-      12,
-      11,
-      0,
-      2,
-      3,
-      "LATENT"
     ],
     [
       13,
@@ -533,16 +569,69 @@
       7,
       1,
       "STRING"
+    ],
+    [
+      17,
+      3,
+      0,
+      17,
+      0,
+      "MODEL"
+    ],
+    [
+      18,
+      4,
+      0,
+      17,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      19,
+      5,
+      0,
+      17,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      20,
+      11,
+      0,
+      17,
+      3,
+      "LATENT"
+    ],
+    [
+      21,
+      17,
+      0,
+      9,
+      0,
+      "LATENT"
     ]
   ],
-  "groups": [],
+  "groups": [
+    {
+      "title": "For Img2Img",
+      "bounding": [
+        1866,
+        1174,
+        630,
+        440
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6830134553650707,
+      "scale": 0.7513148009015777,
       "offset": [
-        -1946.722320465641,
-        -351.5740620495968
+        -948.5728726068876,
+        -548.5428440180409
       ]
     }
   },

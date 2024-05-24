@@ -1,159 +1,20 @@
 {
-  "last_node_id": 29,
+  "last_node_id": 31,
   "last_link_id": 44,
   "nodes": [
-    {
-      "id": 3,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        2430,
-        930
-      ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            18
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            19
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            20
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "copaxTimelessxlSDXL1_v11Lightning.safetensors"
-      ]
-    },
-    {
-      "id": 21,
-      "type": "SUPIR_conditioner",
-      "pos": [
-        3491,
-        1382
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "SUPIR_model",
-          "type": "SUPIRMODEL",
-          "link": 27
-        },
-        {
-          "name": "latents",
-          "type": "LATENT",
-          "link": 32
-        },
-        {
-          "name": "captions",
-          "type": "STRING",
-          "link": null,
-          "widget": {
-            "name": "captions"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "positive",
-          "type": "SUPIR_cond_pos",
-          "links": [
-            28
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "negative",
-          "type": "SUPIR_cond_neg",
-          "links": [
-            29
-          ],
-          "shape": 3,
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SUPIR_conditioner"
-      },
-      "widgets_values": [
-        "high quality, detailed",
-        "bad quality, blurry, messy",
-        ""
-      ]
-    },
-    {
-      "id": 25,
-      "type": "SaveImage",
-      "pos": [
-        4725.878352911969,
-        1402.18206405036
-      ],
-      "size": [
-        315,
-        269.999942779541
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 37
-        }
-      ],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
-      ]
-    },
     {
       "id": 1,
       "type": "EZLoadImgFromUrlNode",
       "pos": [
-        2437,
-        1081
+        1951,
+        1702
       ],
       "size": {
         "0": 315,
         "1": 78
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "outputs": [
         {
@@ -178,86 +39,41 @@
       ]
     },
     {
-      "id": 16,
-      "type": "SUPIR_sample",
+      "id": 30,
+      "type": "Note",
       "pos": [
-        3938,
-        1341
+        2302,
+        1458
       ],
-      "size": {
-        "0": 315,
-        "1": 454
-      },
+      "size": [
+        303.1392589748393,
+        61.05705085131467
+      ],
       "flags": {},
-      "order": 8,
+      "order": 1,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "SUPIR_model",
-          "type": "SUPIRMODEL",
-          "link": 17
-        },
-        {
-          "name": "latents",
-          "type": "LATENT",
-          "link": 42
-        },
-        {
-          "name": "positive",
-          "type": "SUPIR_cond_pos",
-          "link": 28
-        },
-        {
-          "name": "negative",
-          "type": "SUPIR_cond_neg",
-          "link": 29
-        }
-      ],
-      "outputs": [
-        {
-          "name": "latent",
-          "type": "LATENT",
-          "links": [
-            35
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
       "properties": {
-        "Node name for S&R": "SUPIR_sample"
+        "text": ""
       },
       "widgets_values": [
-        618153259404945,
-        "randomize",
-        45,
-        4,
-        4,
-        5,
-        1.003,
-        1,
-        1,
-        1,
-        -1,
-        false,
-        "RestoreEDMSampler",
-        1024,
-        512
-      ]
+        "Set scale_by to determine new upscaled image size."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     },
     {
       "id": 17,
       "type": "SUPIR_model_loader_v2",
       "pos": [
-        2580,
-        1463
+        2393,
+        1117
       ],
       "size": {
         "0": 315,
         "1": 170
       },
       "flags": {},
-      "order": 3,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
@@ -312,15 +128,15 @@
       "id": 22,
       "type": "SUPIR_first_stage",
       "pos": [
-        2938,
-        1564
+        2726,
+        1355
       ],
       "size": {
         "0": 330,
         "1": 170
       },
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -375,18 +191,107 @@
       ]
     },
     {
+      "id": 25,
+      "type": "SaveImage",
+      "pos": [
+        2507,
+        1620
+      ],
+      "size": [
+        320,
+        270
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 37
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "SUPIR_conditioner",
+      "pos": [
+        3097,
+        1364
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "SUPIR_model",
+          "type": "SUPIRMODEL",
+          "link": 27
+        },
+        {
+          "name": "latents",
+          "type": "LATENT",
+          "link": 32
+        },
+        {
+          "name": "captions",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "captions"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "SUPIR_cond_pos",
+          "links": [
+            28
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "SUPIR_cond_neg",
+          "links": [
+            29
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SUPIR_conditioner"
+      },
+      "widgets_values": [
+        "high quality, detailed",
+        "bad quality, blurry, messy",
+        ""
+      ]
+    },
+    {
       "id": 28,
       "type": "SUPIR_encode",
       "pos": [
-        3366,
-        1643
+        3102,
+        1193
       ],
       "size": {
         "0": 315,
         "1": 126
       },
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -421,18 +326,86 @@
       ]
     },
     {
+      "id": 16,
+      "type": "SUPIR_sample",
+      "pos": [
+        3531,
+        1127
+      ],
+      "size": {
+        "0": 315,
+        "1": 454
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "SUPIR_model",
+          "type": "SUPIRMODEL",
+          "link": 17
+        },
+        {
+          "name": "latents",
+          "type": "LATENT",
+          "link": 42
+        },
+        {
+          "name": "positive",
+          "type": "SUPIR_cond_pos",
+          "link": 28
+        },
+        {
+          "name": "negative",
+          "type": "SUPIR_cond_neg",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            35
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SUPIR_sample"
+      },
+      "widgets_values": [
+        389715330971159,
+        "randomize",
+        45,
+        4,
+        4,
+        5,
+        1.003,
+        1,
+        1,
+        1,
+        -1,
+        false,
+        "RestoreEDMSampler",
+        1024,
+        512
+      ]
+    },
+    {
       "id": 24,
       "type": "SUPIR_decode",
       "pos": [
-        4302,
-        1396
+        3087,
+        1679
       ],
       "size": {
         "0": 315,
         "1": 102
       },
       "flags": {},
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -469,15 +442,15 @@
       "id": 29,
       "type": "ImageScaleBy",
       "pos": [
-        2368,
-        1867
+        2300,
+        1333
       ],
       "size": {
         "0": 315,
         "1": 82
       },
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -506,18 +479,68 @@
       ]
     },
     {
+      "id": 3,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        1957,
+        1188
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            19
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "copaxTimelessxlSDXL1_v12.safetensors"
+      ]
+    },
+    {
       "id": 10,
       "type": "LoadImage",
       "pos": [
-        1944,
-        1447
+        1950,
+        1340
       ],
       "size": {
         "0": 315,
         "1": 314
       },
       "flags": {},
-      "order": 2,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -540,7 +563,7 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "birdsheartflower.png",
+        "1531174403377.jpeg",
         "image"
       ]
     }
@@ -687,10 +710,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.826446280991736,
+      "scale": 0.8264462809917354,
       "offset": [
-        -2053.0423280722243,
-        -1276.0414727376653
+        -1355.4297102145051,
+        -971.007260768671
       ]
     }
   },

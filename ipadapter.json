@@ -1,12 +1,84 @@
 {
-  "last_node_id": 17,
-  "last_link_id": 22,
+  "last_node_id": 19,
+  "last_link_id": 25,
   "nodes": [
+    {
+      "id": 16,
+      "type": "CLIPVisionLoader",
+      "pos": [
+        2200,
+        755
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "links": [
+            16
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPVisionLoader"
+      },
+      "widgets_values": [
+        "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": [
+        2190,
+        1248
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13,
+            14
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "kefka-palazzo-01.png",
+        "image"
+      ]
+    },
     {
       "id": 1,
       "type": "EZLoadImgFromUrlNode",
       "pos": [
-        2194,
+        2191,
         1122
       ],
       "size": {
@@ -14,7 +86,7 @@
         "1": 78
       },
       "flags": {},
-      "order": 0,
+      "order": 2,
       "mode": 0,
       "outputs": [
         {
@@ -36,28 +108,200 @@
       },
       "widgets_values": [
         ""
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2985,
+        957
+      ],
+      "size": {
+        "0": 288.381591796875,
+        "1": 119.56544494628906
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "ugly, bad colors, dark, too bright"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        3097,
+        1139
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 22
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": [
+        3349,
+        1133
+      ],
+      "size": {
+        "0": 315,
+        "1": 270
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "KSampler //Inspire",
+      "pos": [
+        3339,
+        707
+      ],
+      "size": {
+        "0": 315,
+        "1": 358
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 18
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 19
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 20
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            22
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler //Inspire"
+      },
+      "widgets_values": [
+        491191170728133,
+        "randomize",
+        40,
+        6,
+        "dpmpp_3m_sde_gpu",
+        "exponential",
+        0.7000000000000001,
+        "GPU(=A1111)",
+        "incremental",
+        0,
+        0
       ]
     },
     {
       "id": 3,
       "type": "CheckpointLoaderSimple",
       "pos": [
-        2204,
-        973
+        1849,
+        979
       ],
       "size": {
         "0": 315,
         "1": 98
       },
       "flags": {},
-      "order": 1,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            15
+            24
           ],
           "shape": 3,
           "slot_index": 0
@@ -87,146 +331,86 @@
         "Node name for S&R": "CheckpointLoaderSimple"
       },
       "widgets_values": [
-        "copaxTimelessxlSDXL1_v11Lightning.safetensors"
+        "copaxTimelessxlSDXL1_v12.safetensors"
       ]
     },
     {
-      "id": 10,
-      "type": "LoadImage",
+      "id": 19,
+      "type": "IPAdapterUnifiedLoader",
       "pos": [
-        2190,
-        1248
+        2199,
+        872
       ],
       "size": {
         "0": 315,
-        "1": 314
+        "1": 78
       },
       "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            13,
-            14
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "New Project (1).png",
-        "image"
-      ]
-    },
-    {
-      "id": 16,
-      "type": "CLIPVisionLoader",
-      "pos": [
-        2200,
-        755
-      ],
-      "size": {
-        "0": 315,
-        "1": 58
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "CLIP_VISION",
-          "type": "CLIP_VISION",
-          "links": [
-            16
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPVisionLoader"
-      },
-      "widgets_values": [
-        "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
-      ]
-    },
-    {
-      "id": 6,
-      "type": "VAEEncode",
-      "pos": [
-        2604,
-        1132
-      ],
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 7,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 13
+          "name": "model",
+          "type": "MODEL",
+          "link": 24
         },
         {
-          "name": "vae",
-          "type": "VAE",
-          "link": 5
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "link": null
         }
       ],
       "outputs": [
         {
-          "name": "LATENT",
-          "type": "LATENT",
+          "name": "model",
+          "type": "MODEL",
           "links": [
-            21
+            25
           ],
           "shape": 3,
           "slot_index": 0
+        },
+        {
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 1
         }
       ],
       "properties": {
-        "Node name for S&R": "VAEEncode"
-      }
+        "Node name for S&R": "IPAdapterUnifiedLoader"
+      },
+      "widgets_values": [
+        "PLUS (high strength)"
+      ]
     },
     {
       "id": 11,
       "type": "IPAdapterAdvanced",
       "pos": [
-        2718,
-        703
+        2562,
+        872
       ],
       "size": {
         "0": 315,
         "1": 278
       },
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
           "name": "model",
           "type": "MODEL",
-          "link": 15
+          "link": 25
         },
         {
           "name": "ipadapter",
           "type": "IPADAPTER",
-          "link": 12
+          "link": 23
         },
         {
           "name": "image",
@@ -273,57 +457,59 @@
       ]
     },
     {
-      "id": 5,
-      "type": "CLIPTextEncode",
+      "id": 6,
+      "type": "VAEEncode",
       "pos": [
-        3100,
-        1303
+        2537,
+        1417
       ],
       "size": {
-        "0": 400,
-        "1": 200
+        "0": 210,
+        "1": 46
       },
       "flags": {},
-      "order": 6,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 5
         }
       ],
       "outputs": [
         {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
+          "name": "LATENT",
+          "type": "LATENT",
           "links": [
-            20
+            21
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "ugly, bad colors, dark, too bright"
-      ]
+        "Node name for S&R": "VAEEncode"
+      }
     },
     {
       "id": 4,
       "type": "CLIPTextEncode",
       "pos": [
-        3100,
-        1059
+        2982,
+        805
       ],
       "size": {
-        "0": 400,
-        "1": 200
+        "0": 297.0815734863281,
+        "1": 108.46544647216797
       },
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -347,171 +533,31 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "artistic P, S and W mirrored and combined into a logo"
+        "kefka palazzo from final fantasy 6, hasselblad, photograph"
       ]
     },
     {
-      "id": 17,
-      "type": "KSampler //Inspire",
+      "id": 18,
+      "type": "Note",
       "pos": [
-        3564,
-        772
-      ],
-      "size": {
-        "0": 315,
-        "1": 358
-      },
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 18
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 19
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 20
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 21
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            22
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler //Inspire"
-      },
-      "widgets_values": [
-        632677706894106,
-        "randomize",
-        20,
-        8,
-        "euler",
-        "normal",
-        1,
-        "GPU(=A1111)",
-        "incremental",
-        0,
-        0
-      ]
-    },
-    {
-      "id": 9,
-      "type": "VAEDecode",
-      "pos": [
-        3908,
-        780
-      ],
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 22
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 10
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            11
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 7,
-      "type": "SaveImage",
-      "pos": [
-        3903,
-        883
+        1938.5252851539296,
+        1126.1748460558488
       ],
       "size": [
-        315,
-        270
+        210,
+        321.97478024352426
       ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 11
-        }
-      ],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
-      ]
-    },
-    {
-      "id": 15,
-      "type": "IPAdapterModelLoader",
-      "pos": [
-        2198,
-        863
-      ],
-      "size": {
-        "0": 315,
-        "1": 58
-      },
       "flags": {},
       "order": 4,
       "mode": 0,
-      "outputs": [
-        {
-          "name": "IPADAPTER",
-          "type": "IPADAPTER",
-          "links": [
-            12
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
       "properties": {
-        "Node name for S&R": "IPAdapterModelLoader"
+        "text": ""
       },
       "widgets_values": [
-        "ip-adapter-plus-face_sdxl_vit-h.safetensors"
-      ]
+        "IMPORTANT! \n\nSee install instructions and more info on models and usage here: https://stable-diffusion-art.com/ip-adapter/#Using_IP-Adapter_in_ComfyUI\n\nSee here also for more information and model downloads. Make sure to download the Unified Loader files to the correct folder.\n\nhttps://github.com/cubiq/ComfyUI_IPAdapter_plus?tab=readme-ov-file"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -556,14 +602,6 @@
       "IMAGE"
     ],
     [
-      12,
-      15,
-      0,
-      11,
-      1,
-      "IPADAPTER"
-    ],
-    [
       13,
       10,
       0,
@@ -578,14 +616,6 @@
       11,
       2,
       "IMAGE"
-    ],
-    [
-      15,
-      3,
-      0,
-      11,
-      0,
-      "MODEL"
     ],
     [
       16,
@@ -634,16 +664,40 @@
       9,
       0,
       "LATENT"
+    ],
+    [
+      23,
+      19,
+      1,
+      11,
+      1,
+      "IPADAPTER"
+    ],
+    [
+      24,
+      3,
+      0,
+      19,
+      0,
+      "MODEL"
+    ],
+    [
+      25,
+      19,
+      0,
+      11,
+      0,
+      "MODEL"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7513148009015781,
+      "scale": 0.9090909090909091,
       "offset": [
-        -2525.9130396993864,
-        -545.9563551467568
+        -1656.4919924329874,
+        -653.949626299373
       ]
     }
   },

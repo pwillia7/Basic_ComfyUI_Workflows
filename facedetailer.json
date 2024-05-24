@@ -1,13 +1,13 @@
 {
-  "last_node_id": 15,
-  "last_link_id": 29,
+  "last_node_id": 20,
+  "last_link_id": 34,
   "nodes": [
     {
       "id": 1,
       "type": "EZLoadImgFromUrlNode",
       "pos": [
-        2420,
-        1080
+        1995.4587668633283,
+        1460.8625656131173
       ],
       "size": {
         "0": 315,
@@ -39,18 +39,49 @@
       ]
     },
     {
+      "id": 18,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1990.4587668633283,
+        1289.8625656131173
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
       "id": 6,
       "type": "VAEEncode",
       "pos": [
-        2904,
-        1324
+        2781,
+        1178
       ],
       "size": {
         "0": 210,
         "1": 46
       },
       "flags": {},
-      "order": 7,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -80,18 +111,153 @@
       }
     },
     {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2790,
+        825
+      ],
+      "size": [
+        261.9669748978122,
+        105.38458279405495
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            13,
+            23
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "16th century English Aristocrat portrait, close up, masterpiece"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2791,
+        983
+      ],
+      "size": [
+        260.9669748978122,
+        117.38996024487142
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14,
+            24
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "ugly, deformed"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        2416,
+        831
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            12,
+            20
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2,
+            3,
+            21
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            5,
+            10,
+            22
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "copaxTimelessxlSDXL1_v12.safetensors"
+      ]
+    },
+    {
       "id": 11,
       "type": "KSampler //Inspire",
       "pos": [
-        3520,
-        804
+        3097,
+        856
       ],
       "size": {
         "0": 315,
         "1": 358
       },
       "flags": {},
-      "order": 8,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -130,13 +296,13 @@
         "Node name for S&R": "KSampler //Inspire"
       },
       "widgets_values": [
-        321094584886711,
+        1068968371051019,
         "randomize",
-        20,
-        8,
-        "euler",
-        "normal",
-        1,
+        40,
+        6,
+        "dpmpp_3m_sde_gpu",
+        "exponential",
+        0.8,
         "GPU(=A1111)",
         "incremental",
         0,
@@ -144,126 +310,18 @@
       ]
     },
     {
-      "id": 7,
-      "type": "SaveImage",
-      "pos": [
-        4665,
-        806
-      ],
-      "size": [
-        315,
-        270
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 17
-        }
-      ],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
-      ]
-    },
-    {
-      "id": 9,
-      "type": "VAEDecode",
-      "pos": [
-        3890,
-        840
-      ],
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 16
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 10
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            18,
-            19
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 5,
-      "type": "CLIPTextEncode",
-      "pos": [
-        3040,
-        1000
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            14,
-            24
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
       "id": 13,
       "type": "FaceDetailer",
       "pos": [
-        4156,
-        944
+        3773,
+        819
       ],
       "size": {
         "0": 506.4000244140625,
         "1": 880
       },
       "flags": {},
-      "order": 10,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -322,7 +380,8 @@
           "name": "image",
           "type": "IMAGE",
           "links": [
-            17
+            17,
+            32
           ],
           "shape": 3,
           "slot_index": 0
@@ -365,12 +424,12 @@
         384,
         true,
         1024,
-        644905278505508,
+        909944277499453,
         "randomize",
-        20,
-        8,
-        "euler",
-        "normal",
+        40,
+        6,
+        "dpmpp_3m_sde_gpu",
+        "exponential",
         0.5,
         5,
         true,
@@ -387,56 +446,23 @@
         10,
         "",
         1,
-        false,
+        true,
         20
-      ]
-    },
-    {
-      "id": 15,
-      "type": "SAMLoader",
-      "pos": [
-        3364,
-        1259
-      ],
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "SAM_MODEL",
-          "type": "SAM_MODEL",
-          "links": [
-            27
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SAMLoader"
-      },
-      "widgets_values": [
-        "sam_vit_h_4b8939.pth",
-        "AUTO"
       ]
     },
     {
       "id": 10,
       "type": "LoadImage",
       "pos": [
-        2440,
-        1210
+        2416,
+        972
       ],
-      "size": {
-        "0": 315,
-        "1": 314
-      },
+      "size": [
+        315.147129480873,
+        234.63042423099796
+      ],
       "flags": {},
-      "order": 2,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -459,111 +485,111 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "kefka-palazzo-01.png",
+        "keeanu.jpg",
         "image"
       ]
     },
     {
-      "id": 3,
-      "type": "CheckpointLoaderSimple",
+      "id": 7,
+      "type": "SaveImage",
       "pos": [
-        2430,
-        930
+        4323,
+        1142
       ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
+      "size": [
+        243.53101762681217,
+        288.6697321886427
+      ],
       "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            12,
-            20
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            2,
-            3,
-            21
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            5,
-            10,
-            22
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "copaxTimelessxlSDXL1_v12.safetensors"
-      ]
-    },
-    {
-      "id": 4,
-      "type": "CLIPTextEncode",
-      "pos": [
-        3040,
-        740
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 5,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 2
+          "name": "images",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "FaceDetailer"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        3430,
+        865
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 16
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 10
         }
       ],
       "outputs": [
         {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
+          "name": "IMAGE",
+          "type": "IMAGE",
           "links": [
-            13,
-            23
+            18,
+            33,
+            34
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode"
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 20,
+      "type": "SaveImage",
+      "pos": [
+        4324,
+        805
+      ],
+      "size": {
+        "0": 243.53102111816406,
+        "1": 288.66973876953125
       },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 34
+        }
+      ],
+      "properties": {},
       "widgets_values": [
-        "kefka from final fantasy's face"
+        "Gen1"
       ]
     },
     {
       "id": 14,
       "type": "UltralyticsDetectorProvider",
       "pos": [
-        3382,
-        1392
+        3413,
+        1297
       ],
       "size": {
         "0": 315,
@@ -598,29 +624,117 @@
       ]
     },
     {
-      "id": 12,
-      "type": "PreviewImage",
+      "id": 15,
+      "type": "SAMLoader",
       "pos": [
-        3837,
-        1231
+        3413,
+        1432
       ],
-      "size": [
-        210,
-        246
-      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
       "flags": {},
-      "order": 11,
+      "order": 5,
       "mode": 0,
-      "inputs": [
+      "outputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 19
+          "name": "SAM_MODEL",
+          "type": "SAM_MODEL",
+          "links": [
+            27
+          ],
+          "shape": 3,
+          "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
+        "Node name for S&R": "SAMLoader"
+      },
+      "widgets_values": [
+        "sam_vit_h_4b8939.pth",
+        "AUTO"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "Note",
+      "pos": [
+        4319,
+        1490
+      ],
+      "size": [
+        248.4718818807778,
+        259.58345567080414
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Set inpaint_model to true for best results\n\nMake sure to set First Generation Sampler settings and FaceDetailer Sampler settings correctly (cfg, steps, sampler, etc)\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 17,
+      "type": "Image Comparer (rgthree)",
+      "pos": {
+        "0": 2408,
+        "1": 1283,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        950.3533269706154,
+        600.0194247411605
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 32,
+          "dir": 4,
+          "has_old_label": true,
+          "label": " "
+        },
+        {
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 33,
+          "dir": 4,
+          "has_old_label": true,
+          "label": " "
+        }
+      ],
+      "outputs": [],
+      "title": "Slide to compare (FaceDetail default)",
+      "properties": {
+        "comparer_mode": "Slide",
+        "connections_layout": [
+          "Right",
+          "Left"
+        ]
+      },
+      "widgets_values": [
+        [
+          "/view?filename=rgthree.compare._temp_eocvg_00015_.png&type=temp&subfolder=&rand=0.4387902185516739",
+          "/view?filename=rgthree.compare._temp_eocvg_00016_.png&type=temp&subfolder=&rand=0.06206088564251622"
+        ]
+      ],
+      "shape": 2
     }
   ],
   "links": [
@@ -713,14 +827,6 @@
       "IMAGE"
     ],
     [
-      19,
-      9,
-      0,
-      12,
-      0,
-      "IMAGE"
-    ],
-    [
       20,
       3,
       0,
@@ -783,16 +889,65 @@
       6,
       0,
       "IMAGE"
+    ],
+    [
+      32,
+      13,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      33,
+      9,
+      0,
+      17,
+      1,
+      "IMAGE"
+    ],
+    [
+      34,
+      9,
+      0,
+      20,
+      0,
+      "IMAGE"
     ]
   ],
-  "groups": [],
+  "groups": [
+    {
+      "title": "For Txt2Img or URL Load",
+      "bounding": [
+        1962,
+        1120,
+        378,
+        446
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "First Generation",
+      "bounding": [
+        3083,
+        773,
+        571,
+        455
+      ],
+      "color": "#a1309b",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7513148009015777,
+      "scale": 0.6934334949441389,
       "offset": [
-        -3569.7533102693246,
-        -623.4504291626426
+        -1829.2276585616514,
+        -704.1377590640157
       ]
     }
   },
