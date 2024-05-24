@@ -2,7 +2,7 @@
 
 **5/24/24**
 Cleaned up all workflows, added notes, improved IPA and outpaint workflows
-New workflows: InstantID, Instructpix2pix, controlnetmulti, 
+New workflows: StableCascade txt2img img2img and imageprompt, InstantID, Instructpix2pix, controlnetmulti, 
 
 ## About
 
@@ -15,10 +15,16 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
  ![txt2img](./WorkflowImages/txt2img.png)
  - txt2imglora
  ![txt2imglora](./WorkflowImages/txt2imglora.png)
+ - txt2img_stablecascade
+![txt2img_stablecascade](./WorkflowImages/txt2img_stablecascade.png)
  - img2img
  ![img2img](./WorkflowImages/img2img.png)
  - img2imglora
  ![img2imglora](./WorkflowImages/img2imglora.png)
+ - img2img_stablecascade
+![img2img_stablecascade](./WorkflowImages/InstructPix2Pix.png)
+- imgprompt_stablecascade
+![imgprompt_stablecascade](./WorkflowImages/imgprompt_stablecascade.png)
  - controlnet
  ![controlnet](./WorkflowImages/controlnet.png)
  - contolnet-multi (2 controlnet models)
