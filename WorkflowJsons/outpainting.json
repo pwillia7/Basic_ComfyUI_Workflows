@@ -1,43 +1,7 @@
 {
-  "last_node_id": 14,
-  "last_link_id": 23,
+  "last_node_id": 16,
+  "last_link_id": 27,
   "nodes": [
-    {
-      "id": 1,
-      "type": "EZLoadImgFromUrlNode",
-      "pos": [
-        2436,
-        1422
-      ],
-      "size": {
-        "0": 315,
-        "1": 78
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EZLoadImgFromUrlNode"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
     {
       "id": 9,
       "type": "VAEDecode",
@@ -106,176 +70,6 @@
       ]
     },
     {
-      "id": 5,
-      "type": "CLIPTextEncode",
-      "pos": [
-        2806,
-        1161
-      ],
-      "size": [
-        210,
-        76
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            14
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "ugly, deformed"
-      ]
-    },
-    {
-      "id": 10,
-      "type": "LoadImage",
-      "pos": [
-        2433,
-        1070
-      ],
-      "size": {
-        "0": 315,
-        "1": 314
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            21
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [],
-          "shape": 3,
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "Death_of_Marat_by_David.jpg",
-        "image"
-      ]
-    },
-    {
-      "id": 4,
-      "type": "CLIPTextEncode",
-      "pos": [
-        2810,
-        1023
-      ],
-      "size": [
-        210,
-        94.83200201127408
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            13
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "Marat assassinated in his tub, the killer stands nearby with her knife"
-      ]
-    },
-    {
-      "id": 13,
-      "type": "ImagePadForOutpaint",
-      "pos": [
-        2777,
-        1322
-      ],
-      "size": {
-        "0": 315,
-        "1": 174
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 21
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            22
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [
-            23
-          ],
-          "shape": 3,
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImagePadForOutpaint"
-      },
-      "widgets_values": [
-        504,
-        0,
-        504,
-        0,
-        40
-      ]
-    },
-    {
       "id": 12,
       "type": "VAEEncodeForInpaint",
       "pos": [
@@ -325,70 +119,18 @@
       ]
     },
     {
-      "id": 3,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        2430,
-        930
-      ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            20
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            2,
-            3
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            10,
-            16
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "juggerxlInpaint_juggerInpaintV8.safetensors"
-      ]
-    },
-    {
       "id": 14,
       "type": "Note",
       "pos": [
         3136,
         1448
       ],
-      "size": [
-        332.87080962039454,
-        130.63200201127438
-      ],
+      "size": {
+        "0": 332.8708190917969,
+        "1": 130.6320037841797
+      },
       "flags": {},
-      "order": 3,
+      "order": 0,
       "mode": 0,
       "properties": {
         "text": ""
@@ -422,12 +164,12 @@
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 13
+          "link": 27
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 14
+          "link": 24
         },
         {
           "name": "latent_image",
@@ -450,7 +192,7 @@
         "Node name for S&R": "KSampler //Inspire"
       },
       "widgets_values": [
-        642585670491181,
+        669606270558510,
         "randomize",
         20,
         7,
@@ -462,25 +204,285 @@
         0,
         0
       ]
+    },
+    {
+      "id": 3,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        2272,
+        919
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            25,
+            26
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            10,
+            16
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "juggerxlInpaint_juggerInpaintV8.safetensors"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": [
+        2275,
+        1063
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Death_of_Marat_by_David.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "EZLoadImgFromUrlNode",
+      "pos": [
+        2271,
+        1426
+      ],
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EZLoadImgFromUrlNode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 15,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        2637,
+        876
+      ],
+      "size": [
+        210,
+        269.9999837875366
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            27
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "Marat assassinated in his tub, the killer stands nearby with her knife",
+        "Marat assassinated in his tub, the killer stands nearby with her knife"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 16,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        2864,
+        878
+      ],
+      "size": {
+        "0": 210,
+        "1": 270
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            24
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "ugly, deformed",
+        "ugly, deformed"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 13,
+      "type": "ImagePadForOutpaint",
+      "pos": [
+        2635,
+        1281
+      ],
+      "size": {
+        "0": 315,
+        "1": 174
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImagePadForOutpaint"
+      },
+      "widgets_values": [
+        504,
+        0,
+        504,
+        0,
+        40
+      ]
     }
   ],
   "links": [
-    [
-      2,
-      3,
-      1,
-      4,
-      0,
-      "CLIP"
-    ],
-    [
-      3,
-      3,
-      1,
-      5,
-      0,
-      "CLIP"
-    ],
     [
       10,
       3,
@@ -504,22 +506,6 @@
       9,
       0,
       "LATENT"
-    ],
-    [
-      13,
-      4,
-      0,
-      11,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      14,
-      5,
-      0,
-      11,
-      2,
-      "CONDITIONING"
     ],
     [
       16,
@@ -568,16 +554,48 @@
       12,
       2,
       "MASK"
+    ],
+    [
+      24,
+      16,
+      0,
+      11,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      25,
+      3,
+      1,
+      16,
+      0,
+      "CLIP"
+    ],
+    [
+      26,
+      3,
+      1,
+      15,
+      0,
+      "CLIP"
+    ],
+    [
+      27,
+      15,
+      0,
+      11,
+      1,
+      "CONDITIONING"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1,
+      "scale": 0.8264462809917354,
       "offset": [
-        -2033.0392462809605,
-        -789.0022743542102
+        -1667.4805915046209,
+        -812.7752699706997
       ]
     }
   },

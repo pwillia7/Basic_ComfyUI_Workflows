@@ -1,6 +1,6 @@
 {
-  "last_node_id": 13,
-  "last_link_id": 17,
+  "last_node_id": 15,
+  "last_link_id": 21,
   "nodes": [
     {
       "id": 1,
@@ -39,11 +39,73 @@
       ]
     },
     {
+      "id": 12,
+      "type": "Note",
+      "pos": [
+        2212,
+        1089
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Use URL loader for non local images"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": [
+        2440,
+        1210
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "FF6_Kefkaart.webp",
+        "image"
+      ]
+    },
+    {
       "id": 6,
       "type": "VAEEncode",
       "pos": [
-        2811,
-        1472
+        2784,
+        1217
       ],
       "size": {
         "0": 210,
@@ -80,29 +142,6 @@
       }
     },
     {
-      "id": 12,
-      "type": "Note",
-      "pos": [
-        2212,
-        1089
-      ],
-      "size": {
-        "0": 210,
-        "1": 58
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "Use URL loader for non local images"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 3,
       "type": "CheckpointLoaderSimple",
       "pos": [
@@ -114,7 +153,7 @@
         "1": 98
       },
       "flags": {},
-      "order": 2,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -130,8 +169,8 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            2,
-            3
+            18,
+            19
           ],
           "shape": 3,
           "slot_index": 1
@@ -155,215 +194,11 @@
       ]
     },
     {
-      "id": 10,
-      "type": "LoadImage",
-      "pos": [
-        2440,
-        1210
-      ],
-      "size": {
-        "0": 315,
-        "1": 314
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            17
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "FF6_Kefkaart.webp",
-        "image"
-      ]
-    },
-    {
-      "id": 5,
-      "type": "CLIPTextEncode",
-      "pos": [
-        2849,
-        1028
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            14
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "ugly, bad hands, poorly drawn, cartoon"
-      ]
-    },
-    {
-      "id": 4,
-      "type": "CLIPTextEncode",
-      "pos": [
-        2848,
-        779
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            13
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "Kefka from final fantasy 6, masterpiece, 3d rendering, unreal engine 6"
-      ]
-    },
-    {
-      "id": 11,
-      "type": "KSampler //Inspire",
-      "pos": [
-        3365,
-        782
-      ],
-      "size": {
-        "0": 315,
-        "1": 358
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 12
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 13
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 14
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 15
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            16
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler //Inspire"
-      },
-      "widgets_values": [
-        473146485257554,
-        "randomize",
-        40,
-        8,
-        "dpmpp_3m_sde_gpu",
-        "exponential",
-        0.7000000000000001,
-        "GPU(=A1111)",
-        "incremental",
-        0,
-        0
-      ]
-    },
-    {
-      "id": 13,
-      "type": "Note",
-      "pos": [
-        3363,
-        1175
-      ],
-      "size": [
-        308.14537827559434,
-        167.84571505036047
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "Change steps, cfg, sampler_name, and scheduler to match model guidelines. \n\nDenoise strength sets % of original image pixels kept in place. 1=no information kept."
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 9,
       "type": "VAEDecode",
       "pos": [
-        3709,
-        1080
+        3624,
+        862
       ],
       "size": {
         "0": 210,
@@ -400,15 +235,198 @@
       }
     },
     {
+      "id": 15,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        3043,
+        883
+      ],
+      "size": [
+        210,
+        270
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "ugly, bad hands, poorly drawn, cartoon",
+        "ugly, bad hands, poorly drawn, cartoon"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 14,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        2804,
+        891
+      ],
+      "size": [
+        210,
+        270.00000953674316
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "Kefka from final fantasy 6, masterpiece, 3d rendering, unreal engine 6",
+        "Kefka from final fantasy 6, masterpiece, 3d rendering, unreal engine 6"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 11,
+      "type": "KSampler //Inspire",
+      "pos": [
+        3284,
+        851
+      ],
+      "size": {
+        "0": 315,
+        "1": 358
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 12
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 20
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 21
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            16
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler //Inspire"
+      },
+      "widgets_values": [
+        114722065687787,
+        "randomize",
+        40,
+        8,
+        "dpmpp_3m_sde_gpu",
+        "exponential",
+        0.7000000000000001,
+        "GPU(=A1111)",
+        "incremental",
+        0,
+        0
+      ]
+    },
+    {
+      "id": 13,
+      "type": "Note",
+      "pos": [
+        3626,
+        1041
+      ],
+      "size": {
+        "0": 308.1453857421875,
+        "1": 167.84571838378906
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Change steps, cfg, sampler_name, and scheduler to match model guidelines. \n\nDenoise strength sets % of original image pixels kept in place. 1=no information kept.\n\nYou want Inspire sampler for GPU noise mode or results are a lot poorer."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
       "id": 7,
       "type": "SaveImage",
       "pos": [
-        3301,
-        1415
+        3031,
+        1260
       ],
       "size": [
-        315,
-        270
+        561.9554860238495,
+        377.12206885636965
       ],
       "flags": {},
       "order": 10,
@@ -427,22 +445,6 @@
     }
   ],
   "links": [
-    [
-      2,
-      3,
-      1,
-      4,
-      0,
-      "CLIP"
-    ],
-    [
-      3,
-      3,
-      1,
-      5,
-      0,
-      "CLIP"
-    ],
     [
       5,
       3,
@@ -476,22 +478,6 @@
       "MODEL"
     ],
     [
-      13,
-      4,
-      0,
-      11,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      14,
-      5,
-      0,
-      11,
-      2,
-      "CONDITIONING"
-    ],
-    [
       15,
       6,
       0,
@@ -514,16 +500,48 @@
       6,
       0,
       "IMAGE"
+    ],
+    [
+      18,
+      3,
+      1,
+      15,
+      0,
+      "CLIP"
+    ],
+    [
+      19,
+      3,
+      1,
+      14,
+      0,
+      "CLIP"
+    ],
+    [
+      20,
+      14,
+      0,
+      11,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      21,
+      15,
+      0,
+      11,
+      2,
+      "CONDITIONING"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8264462809917354,
+      "scale": 0.6830134553650705,
       "offset": [
-        -1801.5091001499893,
-        -703.1313483182372
+        -1326.5286860238486,
+        -531.7265688563693
       ]
     }
   },

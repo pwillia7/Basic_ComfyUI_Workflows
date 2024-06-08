@@ -1,6 +1,6 @@
 {
-  "last_node_id": 70,
-  "last_link_id": 223,
+  "last_node_id": 73,
+  "last_link_id": 232,
   "nodes": [
     {
       "id": 38,
@@ -205,45 +205,6 @@
       }
     },
     {
-      "id": 40,
-      "type": "CLIPTextEncode",
-      "pos": [
-        360,
-        314
-      ],
-      "size": [
-        284.1095029228618,
-        76
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 123
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            212
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "low quality, blurry, malformed, distorted"
-      ]
-    },
-    {
       "id": 64,
       "type": "ControlNetLoader",
       "pos": [
@@ -274,6 +235,272 @@
       "widgets_values": [
         "instantID-controlnet.safetensors"
       ]
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        633,
+        932
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            231
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1615,
+        576
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 232
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            223
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 70,
+      "type": "SaveImage",
+      "pos": [
+        1078,
+        906
+      ],
+      "size": {
+        "0": 315,
+        "1": 270
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 223
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "InstantID"
+      ]
+    },
+    {
+      "id": 65,
+      "type": "Note",
+      "pos": [
+        13,
+        370
+      ],
+      "size": {
+        "0": 286.1918029785156,
+        "1": 398.5174255371094
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Follow the instructions here after installing missing nodes. You will need to manually download some new models and install InsightFace.\n\nhttps://stable-diffusion-art.com/instantid/#How_to_use_InstantID_on_ComfyUI\n\n\nIf you get an error about antelopev2.zip, download this file and place in /models/inisightface/antelopev2.zip\n\nhttps://drive.usercontent.google.com/download?id=18wEUfMNohBJ4K3Ly5wpTejPfDzp-8fI8&export=download&authuser=0 \n\n\ninfo on error: https://github.com/deepinsight/insightface/issues/2517"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -10,
+        184
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            210
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            224,
+            225
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "copaxTimelessxlSDXL1_v12.safetensors"
+      ]
+    },
+    {
+      "id": 71,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        378,
+        124
+      ],
+      "size": [
+        210,
+        269.99999809265137
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 224
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            226
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "Family portrait of man with his cats, masterpiece, artistry",
+        "Family portrait of man with his cats, masterpiece, artistry"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 72,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        620,
+        126
+      ],
+      "size": {
+        "0": 210,
+        "1": 270
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 225
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            227
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "low quality, blurry, malformed, distorted",
+        "low quality, blurry, malformed, distorted"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
     },
     {
       "id": 63,
@@ -318,12 +545,12 @@
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 211
+          "link": 226
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 212
+          "link": 227
         },
         {
           "name": "image_kps",
@@ -341,7 +568,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            213
+            228
           ],
           "shape": 3,
           "slot_index": 0
@@ -350,7 +577,7 @@
           "name": "POSITIVE",
           "type": "CONDITIONING",
           "links": [
-            216
+            229
           ],
           "shape": 3,
           "slot_index": 1
@@ -359,7 +586,7 @@
           "name": "NEGATIVE",
           "type": "CONDITIONING",
           "links": [
-            217
+            230
           ],
           "shape": 3,
           "slot_index": 2
@@ -375,110 +602,18 @@
       ]
     },
     {
-      "id": 5,
-      "type": "EmptyLatentImage",
-      "pos": [
-        633,
-        932
-      ],
-      "size": {
-        "0": 315,
-        "1": 106
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            2
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1024,
-        1
-      ]
-    },
-    {
-      "id": 3,
-      "type": "KSampler",
-      "pos": [
-        1279,
-        572
-      ],
-      "size": {
-        "0": 315,
-        "1": 262
-      },
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 213
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 216
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 217
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            7
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        1631588095,
-        "fixed",
-        20,
-        2.6,
-        "dpmpp_3m_sde_gpu",
-        "exponential",
-        1
-      ]
-    },
-    {
       "id": 66,
       "type": "Note",
       "pos": [
-        1289,
-        472
+        1306,
+        391
       ],
       "size": {
         "0": 210,
         "1": 58
       },
       "flags": {},
-      "order": 5,
+      "order": 7,
       "mode": 0,
       "properties": {
         "text": ""
@@ -490,199 +625,71 @@
       "bgcolor": "#653"
     },
     {
-      "id": 8,
-      "type": "VAEDecode",
+      "id": 73,
+      "type": "KSampler //Inspire",
       "pos": [
-        1615,
-        576
+        1269,
+        495
       ],
       "size": {
-        "0": 210,
-        "1": 46
+        "0": 315,
+        "1": 358
       },
       "flags": {},
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 7
+          "name": "model",
+          "type": "MODEL",
+          "link": 228
         },
         {
-          "name": "vae",
-          "type": "VAE",
-          "link": 8
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            223
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 70,
-      "type": "SaveImage",
-      "pos": [
-        1078,
-        906
-      ],
-      "size": [
-        315,
-        270
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 223
-        }
-      ],
-      "properties": {},
-      "widgets_values": [
-        "InstantID"
-      ]
-    },
-    {
-      "id": 39,
-      "type": "CLIPTextEncode",
-      "pos": [
-        372,
-        168
-      ],
-      "size": [
-        275.2095029228618,
-        96.19139960909703
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 122
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
+          "name": "positive",
           "type": "CONDITIONING",
+          "link": 229
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 230
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 231
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
           "links": [
-            211
+            232
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode"
+        "Node name for S&R": "KSampler //Inspire"
       },
       "widgets_values": [
-        "Family portrait of man with his cats, masterpiece, artistry"
-      ]
-    },
-    {
-      "id": 65,
-      "type": "Note",
-      "pos": [
-        13,
-        370
-      ],
-      "size": {
-        "0": 286.1918029785156,
-        "1": 398.5174255371094
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "Follow the instructions here after installing missing nodes. You will need to manually download some new models and install InsightFace.\n\nhttps://stable-diffusion-art.com/instantid/#How_to_use_InstantID_on_ComfyUI\n\n\nIf you get an error about antelopev2.zip, download this file and place in /models/inisightface/antelopev2.zip\n\nhttps://drive.usercontent.google.com/download?id=18wEUfMNohBJ4K3Ly5wpTejPfDzp-8fI8&export=download&authuser=0 \n\n\ninfo on error: https://github.com/deepinsight/insightface/issues/2517"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 4,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        -10,
-        184
-      ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            210
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            122,
-            123
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            8
-          ],
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "copaxTimelessxlSDXL1_v12.safetensors"
+        483129727650858,
+        "randomize",
+        20,
+        2.6,
+        "dpmpp_3m_sde_gpu",
+        "exponential",
+        1,
+        "GPU(=A1111)",
+        "incremental",
+        0,
+        0
       ]
     }
   ],
   "links": [
-    [
-      2,
-      5,
-      0,
-      3,
-      3,
-      "LATENT"
-    ],
-    [
-      7,
-      3,
-      0,
-      8,
-      0,
-      "LATENT"
-    ],
     [
       8,
       4,
@@ -690,22 +697,6 @@
       8,
       1,
       "VAE"
-    ],
-    [
-      122,
-      4,
-      1,
-      39,
-      0,
-      "CLIP"
-    ],
-    [
-      123,
-      4,
-      1,
-      40,
-      0,
-      "CLIP"
     ],
     [
       193,
@@ -738,46 +729,6 @@
       63,
       4,
       "MODEL"
-    ],
-    [
-      211,
-      39,
-      0,
-      63,
-      5,
-      "CONDITIONING"
-    ],
-    [
-      212,
-      40,
-      0,
-      63,
-      6,
-      "CONDITIONING"
-    ],
-    [
-      213,
-      63,
-      0,
-      3,
-      0,
-      "MODEL"
-    ],
-    [
-      216,
-      63,
-      1,
-      3,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      217,
-      63,
-      2,
-      3,
-      2,
-      "CONDITIONING"
     ],
     [
       218,
@@ -826,16 +777,88 @@
       70,
       0,
       "IMAGE"
+    ],
+    [
+      224,
+      4,
+      1,
+      71,
+      0,
+      "CLIP"
+    ],
+    [
+      225,
+      4,
+      1,
+      72,
+      0,
+      "CLIP"
+    ],
+    [
+      226,
+      71,
+      0,
+      63,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      227,
+      72,
+      0,
+      63,
+      6,
+      "CONDITIONING"
+    ],
+    [
+      228,
+      63,
+      0,
+      73,
+      0,
+      "MODEL"
+    ],
+    [
+      229,
+      63,
+      1,
+      73,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      230,
+      63,
+      2,
+      73,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      231,
+      5,
+      0,
+      73,
+      3,
+      "LATENT"
+    ],
+    [
+      232,
+      73,
+      0,
+      8,
+      0,
+      "LATENT"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7513148009015777,
+      "scale": 0.6209213230591552,
       "offset": [
-        684.012233440775,
-        -100.16067233636952
+        1069.5642134407717,
+        10.059437663629836
       ]
     }
   },

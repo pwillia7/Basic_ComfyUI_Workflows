@@ -1,6 +1,6 @@
 {
-  "last_node_id": 13,
-  "last_link_id": 17,
+  "last_node_id": 16,
+  "last_link_id": 27,
   "nodes": [
     {
       "id": 11,
@@ -21,7 +21,7 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            12
+            26
           ],
           "shape": 3,
           "slot_index": 0
@@ -87,6 +87,121 @@
       ]
     },
     {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        3694,
+        935
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 27
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": [
+        2724,
+        1179
+      ],
+      "size": [
+        588.821259479856,
+        306.5332533092651
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        3132,
+        863
+      ],
+      "size": {
+        "0": 210,
+        "1": 270
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "ugly, deformed",
+        "ugly, deformed"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
       "id": 12,
       "type": "LoraLoader",
       "pos": [
@@ -117,7 +232,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            17
+            25
           ],
           "shape": 3,
           "slot_index": 0
@@ -126,8 +241,8 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            15,
-            16
+            19,
+            20
           ],
           "shape": 3,
           "slot_index": 1
@@ -143,15 +258,15 @@
       ]
     },
     {
-      "id": 4,
-      "type": "CLIPTextEncode",
+      "id": 14,
+      "type": "CLIPTextEncodeSDXL",
       "pos": [
-        2918,
-        886
+        2903,
+        864
       ],
       "size": [
         210,
-        106.5514351274469
+        269.9999828338623
       ],
       "flags": {},
       "order": 4,
@@ -160,7 +275,7 @@
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 16
+          "link": 20
         }
       ],
       "outputs": [
@@ -168,68 +283,38 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            8
+            24
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode"
+        "Node name for S&R": "CLIPTextEncodeSDXL"
       },
       "widgets_values": [
-        "a tiger escaping his cage"
-      ]
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "a tiger escaping",
+        "a tiger escaping"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     },
     {
-      "id": 5,
-      "type": "CLIPTextEncode",
+      "id": 16,
+      "type": "KSampler //Inspire",
       "pos": [
-        2916,
-        1035
-      ],
-      "size": [
-        210,
-        100.0514351274469
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 15
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            7
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "ugly, deformed"
-      ]
-    },
-    {
-      "id": 2,
-      "type": "KSamplerAdvanced",
-      "pos": [
-        3188,
-        928
+        3364,
+        879
       ],
       "size": {
         "0": 315,
-        "1": 334
+        "1": 358
       },
       "flags": {},
       "order": 5,
@@ -238,22 +323,22 @@
         {
           "name": "model",
           "type": "MODEL",
-          "link": 17
+          "link": 25
         },
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 8
+          "link": 24
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 7
+          "link": 23
         },
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 12
+          "link": 26
         }
       ],
       "outputs": [
@@ -261,121 +346,31 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            9
+            27
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "KSamplerAdvanced"
+        "Node name for S&R": "KSampler //Inspire"
       },
       "widgets_values": [
-        "enable",
-        189354094881791,
+        225838770560759,
         "randomize",
         40,
         6,
         "dpmpp_3m_sde_gpu",
         "exponential",
+        1,
+        "GPU(=A1111)",
+        "incremental",
         0,
-        10000,
-        "disable"
-      ]
-    },
-    {
-      "id": 9,
-      "type": "VAEDecode",
-      "pos": [
-        3539,
-        931
-      ],
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 9
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 10
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            11
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 7,
-      "type": "SaveImage",
-      "pos": [
-        2804,
-        1184
-      ],
-      "size": {
-        "0": 315,
-        "1": 270
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 11
-        }
-      ],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
+        0
       ]
     }
   ],
   "links": [
-    [
-      7,
-      5,
-      0,
-      2,
-      2,
-      "CONDITIONING"
-    ],
-    [
-      8,
-      4,
-      0,
-      2,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      9,
-      2,
-      0,
-      9,
-      0,
-      "LATENT"
-    ],
     [
       10,
       3,
@@ -391,14 +386,6 @@
       7,
       0,
       "IMAGE"
-    ],
-    [
-      12,
-      11,
-      0,
-      2,
-      3,
-      "LATENT"
     ],
     [
       13,
@@ -417,38 +404,70 @@
       "CLIP"
     ],
     [
+      19,
+      12,
+      1,
       15,
-      12,
-      1,
-      5,
       0,
       "CLIP"
     ],
     [
+      20,
+      12,
+      1,
+      14,
+      0,
+      "CLIP"
+    ],
+    [
+      23,
+      15,
+      0,
       16,
-      12,
-      1,
-      4,
-      0,
-      "CLIP"
+      2,
+      "CONDITIONING"
     ],
     [
-      17,
+      24,
+      14,
+      0,
+      16,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      25,
       12,
       0,
-      2,
+      16,
       0,
       "MODEL"
+    ],
+    [
+      26,
+      11,
+      0,
+      16,
+      3,
+      "LATENT"
+    ],
+    [
+      27,
+      16,
+      0,
+      9,
+      0,
+      "LATENT"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.1,
+      "scale": 1,
       "offset": [
-        -1907.3485322071294,
-        -757.124162400174
+        -1773.4641886161126,
+        -704.964248066567
       ]
     }
   },

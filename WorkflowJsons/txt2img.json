@@ -1,91 +1,76 @@
 {
-  "last_node_id": 12,
-  "last_link_id": 12,
+  "last_node_id": 14,
+  "last_link_id": 16,
   "nodes": [
     {
-      "id": 5,
-      "type": "CLIPTextEncode",
+      "id": 2,
+      "type": "KSamplerAdvanced",
       "pos": [
-        2820,
-        853
+        2912,
+        948
       ],
       "size": {
-        "0": 400,
-        "1": 200
+        "0": 315,
+        "1": 334
       },
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 16
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 14
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 12
         }
       ],
       "outputs": [
         {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
+          "name": "LATENT",
+          "type": "LATENT",
           "links": [
-            7
+            9
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode"
+        "Node name for S&R": "KSamplerAdvanced"
       },
       "widgets_values": [
-        "ugly, cartoon"
-      ]
-    },
-    {
-      "id": 4,
-      "type": "CLIPTextEncode",
-      "pos": [
-        2816,
-        601
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            8
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "a blue hat"
+        "enable",
+        48956821142720,
+        "randomize",
+        40,
+        6,
+        "dpmpp_3m_sde_gpu",
+        "exponential",
+        0,
+        10000,
+        "disable"
       ]
     },
     {
       "id": 9,
       "type": "VAEDecode",
       "pos": [
-        3686,
-        838
+        3258,
+        951
       ],
       "size": {
         "0": 210,
@@ -125,8 +110,8 @@
       "id": 7,
       "type": "SaveImage",
       "pos": [
-        3684,
-        932
+        3258,
+        1043
       ],
       "size": {
         "0": 315,
@@ -151,8 +136,8 @@
       "id": 11,
       "type": "EmptyLatentImage",
       "pos": [
-        2555,
-        1111
+        2091,
+        1064
       ],
       "size": {
         "0": 315,
@@ -182,11 +167,107 @@
       ]
     },
     {
+      "id": 13,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        2447,
+        888
+      ],
+      "size": [
+        210,
+        270.0000190734863
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            16
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "a giant glittering cantaloupe on the beach at sunset",
+        "a giant glittering cantaloupe on the beach at sunset"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 14,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        2669,
+        892
+      ],
+      "size": {
+        "0": 210,
+        "1": 270.0000305175781
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        830,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "ugly, cartoon",
+        "ugly, cartoon"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
       "id": 3,
       "type": "CheckpointLoaderSimple",
       "pos": [
-        2205,
-        955
+        2092,
+        920
       ],
       "size": {
         "0": 315,
@@ -209,8 +290,8 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            2,
-            3
+            13,
+            15
           ],
           "shape": 3,
           "slot_index": 1
@@ -229,15 +310,15 @@
         "Node name for S&R": "CheckpointLoaderSimple"
       },
       "widgets_values": [
-        "copaxTimelessxlSDXL1_v11Lightning.safetensors"
+        "copaxTimelessxlSDXL1_v12.safetensors"
       ]
     },
     {
       "id": 12,
       "type": "Note",
       "pos": [
-        2284.870339222591,
-        1105.8244930723617
+        2185,
+        1221
       ],
       "size": {
         "0": 210,
@@ -250,73 +331,10 @@
         "text": ""
       },
       "widgets_values": [
-        "Change width/height to 512x512 if using SD1.5/2"
+        "Change width/height to 512x512 and switch to normal clip encoders if using SD1.5/2"
       ],
       "color": "#432",
       "bgcolor": "#653"
-    },
-    {
-      "id": 2,
-      "type": "KSamplerAdvanced",
-      "pos": [
-        3347,
-        655
-      ],
-      "size": {
-        "0": 315,
-        "1": 334
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 1
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 8
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 7
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 12
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            9
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSamplerAdvanced"
-      },
-      "widgets_values": [
-        "enable",
-        799342515707385,
-        "randomize",
-        40,
-        6,
-        "dpmpp_3m_sde_gpu",
-        "exponential",
-        0,
-        10000,
-        "disable"
-      ]
     }
   ],
   "links": [
@@ -327,38 +345,6 @@
       2,
       0,
       "MODEL"
-    ],
-    [
-      2,
-      3,
-      1,
-      4,
-      0,
-      "CLIP"
-    ],
-    [
-      3,
-      3,
-      1,
-      5,
-      0,
-      "CLIP"
-    ],
-    [
-      7,
-      5,
-      0,
-      2,
-      2,
-      "CONDITIONING"
-    ],
-    [
-      8,
-      4,
-      0,
-      2,
-      1,
-      "CONDITIONING"
     ],
     [
       9,
@@ -391,16 +377,48 @@
       2,
       3,
       "LATENT"
+    ],
+    [
+      13,
+      3,
+      1,
+      14,
+      0,
+      "CLIP"
+    ],
+    [
+      14,
+      14,
+      0,
+      2,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      3,
+      1,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      16,
+      13,
+      0,
+      2,
+      1,
+      "CONDITIONING"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.90909090909091,
+      "scale": 1.2100000000000009,
       "offset": [
-        -2085.7703392225912,
-        -421.6244930723623
+        -2054.308109147134,
+        -821.3602241039953
       ]
     }
   },

@@ -1,183 +1,13 @@
 {
-  "last_node_id": 29,
-  "last_link_id": 56,
+  "last_node_id": 31,
+  "last_link_id": 60,
   "nodes": [
     {
-      "id": 6,
-      "type": "VAEEncode",
+      "id": 16,
+      "type": "CLIPVisionLoader",
       "pos": [
-        2605,
-        1128
-      ],
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 54
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 5
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            21
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEEncode"
-      }
-    },
-    {
-      "id": 21,
-      "type": "PreviewImage",
-      "pos": [
-        2546,
-        1533
-      ],
-      "size": {
-        "0": 210,
-        "1": 246
-      },
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 30
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 5,
-      "type": "CLIPTextEncode",
-      "pos": [
-        2913,
-        1170
-      ],
-      "size": {
-        "0": 242.82919311523438,
-        "1": 100.02546691894531
-      },
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            26
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "ugly, bad colors, dark, too bright"
-      ]
-    },
-    {
-      "id": 19,
-      "type": "ControlNetApplyAdvanced",
-      "pos": [
-        3190,
-        1349
-      ],
-      "size": {
-        "0": 315,
-        "1": 166
-      },
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 25
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 26
-        },
-        {
-          "name": "control_net",
-          "type": "CONTROL_NET",
-          "link": 23
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 29
-        }
-      ],
-      "outputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "links": [
-            27
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "links": [
-            28
-          ],
-          "shape": 3,
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ControlNetApplyAdvanced"
-      },
-      "widgets_values": [
-        1,
-        0,
-        1
-      ]
-    },
-    {
-      "id": 18,
-      "type": "ControlNetLoader",
-      "pos": [
-        2832,
-        1549
+        2449.0195239062496,
+        1120.7514244921856
       ],
       "size": {
         "0": 315,
@@ -188,35 +18,35 @@
       "mode": 0,
       "outputs": [
         {
-          "name": "CONTROL_NET",
-          "type": "CONTROL_NET",
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
           "links": [
-            23
+            48
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "ControlNetLoader"
+        "Node name for S&R": "CLIPVisionLoader"
       },
       "widgets_values": [
-        "diffusers_xl_canny_full.safetensors"
+        "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
       ]
     },
     {
       "id": 11,
       "type": "IPAdapterAdvanced",
       "pos": [
-        2949,
-        660
+        2853.0195239062496,
+        991.7514244921871
       ],
       "size": {
         "0": 315,
         "1": 278
       },
       "flags": {},
-      "order": 12,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -274,85 +104,103 @@
       ]
     },
     {
-      "id": 9,
-      "type": "VAEDecode",
+      "id": 26,
+      "type": "IPAdapterUnifiedLoader",
       "pos": [
-        4009,
-        846
+        2447.0195239062496,
+        994.7514244921871
       ],
       "size": {
-        "0": 210,
-        "1": 46
+        "0": 315,
+        "1": 78
       },
       "flags": {},
-      "order": 15,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 22
+          "name": "model",
+          "type": "MODEL",
+          "link": 45
         },
         {
-          "name": "vae",
-          "type": "VAE",
-          "link": 10
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "link": null
         }
       ],
       "outputs": [
         {
-          "name": "IMAGE",
-          "type": "IMAGE",
+          "name": "model",
+          "type": "MODEL",
           "links": [
-            11
+            46
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "links": [
+            47
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IPAdapterUnifiedLoader"
+      },
+      "widgets_values": [
+        "PLUS (high strength)"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "ControlNetLoader",
+      "pos": [
+        2247,
+        1426
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            23
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 7,
-      "type": "SaveImage",
-      "pos": [
-        3622,
-        1298
-      ],
-      "size": {
-        "0": 315,
-        "1": 270
+        "Node name for S&R": "ControlNetLoader"
       },
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 11
-        }
-      ],
-      "properties": {},
       "widgets_values": [
-        "ComfyUI"
+        "diffusers_xl_canny_full.safetensors"
       ]
     },
     {
       "id": 20,
       "type": "Canny",
       "pos": [
-        2543,
-        1409
+        2249,
+        1538
       ],
       "size": {
         "0": 315,
         "1": 82
       },
       "flags": {},
-      "order": 6,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -382,11 +230,103 @@
       ]
     },
     {
+      "id": 21,
+      "type": "PreviewImage",
+      "pos": [
+        2258,
+        1662
+      ],
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 30
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 6,
+      "type": "VAEEncode",
+      "pos": [
+        2185,
+        1273
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 54
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": [
+        3002,
+        1422
+      ],
+      "size": {
+        "0": 411.0048828125,
+        "1": 326.661865234375
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
       "id": 17,
       "type": "KSampler //Inspire",
       "pos": [
-        3649,
-        847
+        3244,
+        900
       ],
       "size": {
         "0": 315,
@@ -432,7 +372,7 @@
         "Node name for S&R": "KSampler //Inspire"
       },
       "widgets_values": [
-        90840795840357,
+        974254838475807,
         "randomize",
         40,
         4,
@@ -446,71 +386,199 @@
       ]
     },
     {
-      "id": 26,
-      "type": "IPAdapterUnifiedLoader",
+      "id": 9,
+      "type": "VAEDecode",
       "pos": [
-        2564,
-        821
+        3583,
+        907
       ],
       "size": {
-        "0": 315,
-        "1": 78
+        "0": 210,
+        "1": 46
       },
       "flags": {},
-      "order": 7,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
-          "name": "model",
-          "type": "MODEL",
-          "link": 45
+          "name": "samples",
+          "type": "LATENT",
+          "link": 22
         },
         {
-          "name": "ipadapter",
-          "type": "IPADAPTER",
-          "link": null
+          "name": "vae",
+          "type": "VAE",
+          "link": 10
         }
       ],
       "outputs": [
         {
-          "name": "model",
-          "type": "MODEL",
+          "name": "IMAGE",
+          "type": "IMAGE",
           "links": [
-            46
+            11
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 19,
+      "type": "ControlNetApplyAdvanced",
+      "pos": [
+        2621,
+        1422
+      ],
+      "size": {
+        "0": 315,
+        "1": 166
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 60
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 57
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 23
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            27
           ],
           "shape": 3,
           "slot_index": 0
         },
         {
-          "name": "ipadapter",
-          "type": "IPADAPTER",
+          "name": "negative",
+          "type": "CONDITIONING",
           "links": [
-            47
+            28
           ],
           "shape": 3,
           "slot_index": 1
         }
       ],
       "properties": {
-        "Node name for S&R": "IPAdapterUnifiedLoader"
+        "Node name for S&R": "ControlNetApplyAdvanced"
       },
       "widgets_values": [
-        "PLUS (high strength)"
+        0.67,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 22,
+      "type": "Note",
+      "pos": [
+        1773,
+        1563
+      ],
+      "size": {
+        "0": 341.9726257324219,
+        "1": 219.83505249023438
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "IMPORTANT! \n\nSee install instructions and more info on models and usage here: https://stable-diffusion-art.com/ip-adapter/#Using_IP-Adapter_in_ComfyUI\n\nSee here also for more information and model downloads. Make sure to download the Unified Loader files to the correct folder.\n\nhttps://github.com/cubiq/ComfyUI_IPAdapter_plus?tab=readme-ov-file\n\nIf using SD1.5, change clip vision loader to Big-G verison."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        1602,
+        907
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            45
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            58,
+            59
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            5,
+            10
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "copaxTimelessxlSDXL1_v12.safetensors"
       ]
     },
     {
       "id": 10,
       "type": "LoadImage",
       "pos": [
-        1882,
-        1255
+        1600,
+        1061
       ],
       "size": {
         "0": 315,
         "1": 314
       },
       "flags": {},
-      "order": 1,
+      "order": 4,
       "mode": 0,
       "outputs": [
         {
@@ -538,62 +606,23 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "FF6_Kefkaart.webp",
+        "puppy.jpg",
         "image"
-      ]
-    },
-    {
-      "id": 4,
-      "type": "CLIPTextEncode",
-      "pos": [
-        2920,
-        1030
-      ],
-      "size": {
-        "0": 231.85719299316406,
-        "1": 96.81146240234375
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            25
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "kefka palaazo from final fantasy 6"
       ]
     },
     {
       "id": 1,
       "type": "EZLoadImgFromUrlNode",
       "pos": [
-        1879,
-        1609
+        1596,
+        1417
       ],
       "size": {
         "0": 315,
         "1": 78
       },
       "flags": {},
-      "order": 2,
+      "order": 5,
       "mode": 0,
       "outputs": [
         {
@@ -618,130 +647,103 @@
       ]
     },
     {
-      "id": 22,
-      "type": "Note",
+      "id": 30,
+      "type": "CLIPTextEncodeSDXL",
       "pos": [
-        1958.8921910735467,
-        889.1914659606002
+        1953,
+        929
       ],
       "size": {
         "0": 210,
-        "1": 304.1181945800781
+        "1": 270
       },
       "flags": {},
-      "order": 3,
+      "order": 8,
       "mode": 0,
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "IMPORTANT! \n\nSee install instructions and more info on models and usage here: https://stable-diffusion-art.com/ip-adapter/#Using_IP-Adapter_in_ComfyUI\n\nSee here also for more information and model downloads. Make sure to download the Unified Loader files to the correct folder.\n\nhttps://github.com/cubiq/ComfyUI_IPAdapter_plus?tab=readme-ov-file\n\nIf using SD1.5, change clip vision loader to Big-G verison."
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 3,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        2204,
-        973
-      ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "outputs": [
+      "inputs": [
         {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            45
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
+          "name": "clip",
           "type": "CLIP",
-          "links": [
-            2,
-            3
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            5,
-            10
-          ],
-          "shape": 3,
-          "slot_index": 2
+          "link": 59
         }
       ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "copaxTimelessxlSDXL1_v12.safetensors"
-      ]
-    },
-    {
-      "id": 16,
-      "type": "CLIPVisionLoader",
-      "pos": [
-        2208,
-        755
-      ],
-      "size": {
-        "0": 315,
-        "1": 58
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
       "outputs": [
         {
-          "name": "CLIP_VISION",
-          "type": "CLIP_VISION",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
           "links": [
-            48
+            60
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPVisionLoader"
+        "Node name for S&R": "CLIPTextEncodeSDXL"
       },
       "widgets_values": [
-        "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
-      ]
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "a tiger looking at the camera, birds eye view",
+        "a tiger looking at the camera, birds eye view"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 31,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        2187,
+        926
+      ],
+      "size": {
+        "0": 210,
+        "1": 270
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 58
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            57
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "ugly, bad colors, dark, too bright",
+        "ugly, bad colors, dark, too bright"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
     }
   ],
   "links": [
-    [
-      2,
-      3,
-      1,
-      4,
-      0,
-      "CLIP"
-    ],
-    [
-      3,
-      3,
-      1,
-      5,
-      0,
-      "CLIP"
-    ],
     [
       5,
       3,
@@ -797,22 +799,6 @@
       19,
       2,
       "CONTROL_NET"
-    ],
-    [
-      25,
-      4,
-      0,
-      19,
-      0,
-      "CONDITIONING"
-    ],
-    [
-      26,
-      5,
-      0,
-      19,
-      1,
-      "CONDITIONING"
     ],
     [
       27,
@@ -909,16 +895,73 @@
       11,
       2,
       "IMAGE"
+    ],
+    [
+      57,
+      31,
+      0,
+      19,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      58,
+      3,
+      1,
+      31,
+      0,
+      "CLIP"
+    ],
+    [
+      59,
+      3,
+      1,
+      30,
+      0,
+      "CLIP"
+    ],
+    [
+      60,
+      30,
+      0,
+      19,
+      0,
+      "CONDITIONING"
     ]
   ],
-  "groups": [],
+  "groups": [
+    {
+      "title": "IPAdapter",
+      "bounding": [
+        2423,
+        859,
+        786,
+        443
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Controlnet",
+      "bounding": [
+        2236,
+        1346,
+        715,
+        598
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8264462809917354,
+      "scale": 0.7513148009015777,
       "offset": [
-        -1754.0681966291147,
-        -611.4774508599999
+        -930.4135529699046,
+        -879.1475238709199
       ]
     }
   },

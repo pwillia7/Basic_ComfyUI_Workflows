@@ -1,6 +1,6 @@
 {
-  "last_node_id": 19,
-  "last_link_id": 25,
+  "last_node_id": 21,
+  "last_link_id": 29,
   "nodes": [
     {
       "id": 16,
@@ -32,306 +32,6 @@
       },
       "widgets_values": [
         "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
-      ]
-    },
-    {
-      "id": 10,
-      "type": "LoadImage",
-      "pos": [
-        2190,
-        1248
-      ],
-      "size": {
-        "0": 315,
-        "1": 314
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            13,
-            14
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "kefka-palazzo-01.png",
-        "image"
-      ]
-    },
-    {
-      "id": 1,
-      "type": "EZLoadImgFromUrlNode",
-      "pos": [
-        2191,
-        1122
-      ],
-      "size": {
-        "0": 315,
-        "1": 78
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EZLoadImgFromUrlNode"
-      },
-      "widgets_values": [
-        ""
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
-      "id": 5,
-      "type": "CLIPTextEncode",
-      "pos": [
-        2985,
-        957
-      ],
-      "size": {
-        "0": 288.381591796875,
-        "1": 119.56544494628906
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            20
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "ugly, bad colors, dark, too bright"
-      ]
-    },
-    {
-      "id": 9,
-      "type": "VAEDecode",
-      "pos": [
-        3097,
-        1139
-      ],
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 22
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 10
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            11
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 7,
-      "type": "SaveImage",
-      "pos": [
-        3349,
-        1133
-      ],
-      "size": {
-        "0": 315,
-        "1": 270
-      },
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 11
-        }
-      ],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
-      ]
-    },
-    {
-      "id": 17,
-      "type": "KSampler //Inspire",
-      "pos": [
-        3339,
-        707
-      ],
-      "size": {
-        "0": 315,
-        "1": 358
-      },
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 18
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 19
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 20
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 21
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            22
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler //Inspire"
-      },
-      "widgets_values": [
-        491191170728133,
-        "randomize",
-        40,
-        6,
-        "dpmpp_3m_sde_gpu",
-        "exponential",
-        0.7000000000000001,
-        "GPU(=A1111)",
-        "incremental",
-        0,
-        0
-      ]
-    },
-    {
-      "id": 3,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        1849,
-        979
-      ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            24
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            2,
-            3
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            5,
-            10
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "copaxTimelessxlSDXL1_v12.safetensors"
       ]
     },
     {
@@ -388,11 +88,153 @@
       ]
     },
     {
+      "id": 18,
+      "type": "Note",
+      "pos": [
+        1938.5252851539296,
+        1126.1748460558488
+      ],
+      "size": {
+        "0": 210,
+        "1": 321.97479248046875
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "IMPORTANT! \n\nSee install instructions and more info on models and usage here: https://stable-diffusion-art.com/ip-adapter/#Using_IP-Adapter_in_ComfyUI\n\nSee here also for more information and model downloads. Make sure to download the Unified Loader files to the correct folder.\n\nhttps://github.com/cubiq/ComfyUI_IPAdapter_plus?tab=readme-ov-file"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": [
+        2189,
+        1125
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13,
+            14
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "kefka-palazzo-01.png",
+        "image"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "EZLoadImgFromUrlNode",
+      "pos": [
+        2185,
+        1481
+      ],
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EZLoadImgFromUrlNode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 6,
+      "type": "VAEEncode",
+      "pos": [
+        2532,
+        1199
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
       "id": 11,
       "type": "IPAdapterAdvanced",
       "pos": [
-        2562,
-        872
+        2571,
+        862
       ],
       "size": {
         "0": 315,
@@ -457,29 +299,39 @@
       ]
     },
     {
-      "id": 6,
-      "type": "VAEEncode",
+      "id": 17,
+      "type": "KSampler //Inspire",
       "pos": [
-        2537,
-        1417
+        3093,
+        813
       ],
       "size": {
-        "0": 210,
-        "1": 46
+        "0": 315,
+        "1": 358
       },
       "flags": {},
-      "order": 8,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 13
+          "name": "model",
+          "type": "MODEL",
+          "link": 18
         },
         {
-          "name": "vae",
-          "type": "VAE",
-          "link": 5
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 29
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 27
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 21
         }
       ],
       "outputs": [
@@ -487,26 +339,180 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            21
+            22
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "VAEEncode"
+        "Node name for S&R": "KSampler //Inspire"
+      },
+      "widgets_values": [
+        99099156429921,
+        "randomize",
+        40,
+        6,
+        "dpmpp_3m_sde_gpu",
+        "exponential",
+        0.7000000000000001,
+        "GPU(=A1111)",
+        "incremental",
+        0,
+        0
+      ]
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        3432,
+        825
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 22
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
       }
     },
     {
-      "id": 4,
-      "type": "CLIPTextEncode",
+      "id": 3,
+      "type": "CheckpointLoaderSimple",
       "pos": [
-        2982,
-        805
+        1849,
+        979
       ],
       "size": {
-        "0": 297.0815734863281,
-        "1": 108.46544647216797
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            24
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            26,
+            28
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            5,
+            10
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "copaxTimelessxlSDXL1_v12.safetensors"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        2567,
+        1297
+      ],
+      "size": [
+        210,
+        269.9999589920044
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            29
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "kefka palazzo from final fantasy 6, hasselblad, photograph",
+        "kefka palazzo from final fantasy 6, hasselblad, photograph"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 21,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        2825,
+        1300
+      ],
+      "size": {
+        "0": 210,
+        "1": 269.9999694824219
       },
       "flags": {},
       "order": 6,
@@ -515,7 +521,7 @@
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 2
+          "link": 26
         }
       ],
       "outputs": [
@@ -523,60 +529,56 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            19
+            27
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode"
+        "Node name for S&R": "CLIPTextEncodeSDXL"
       },
       "widgets_values": [
-        "kefka palazzo from final fantasy 6, hasselblad, photograph"
-      ]
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "ugly, bad colors, dark, too bright",
+        "ugly, bad colors, dark, too bright"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
     },
     {
-      "id": 18,
-      "type": "Note",
+      "id": 7,
+      "type": "SaveImage",
       "pos": [
-        1938.5252851539296,
-        1126.1748460558488
+        3101,
+        1227
       ],
       "size": [
-        210,
-        321.97478024352426
+        418.1384924329859,
+        352.8691262993734
       ],
       "flags": {},
-      "order": 4,
+      "order": 12,
       "mode": 0,
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "IMPORTANT! \n\nSee install instructions and more info on models and usage here: https://stable-diffusion-art.com/ip-adapter/#Using_IP-Adapter_in_ComfyUI\n\nSee here also for more information and model downloads. Make sure to download the Unified Loader files to the correct folder.\n\nhttps://github.com/cubiq/ComfyUI_IPAdapter_plus?tab=readme-ov-file"
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
       ],
-      "color": "#432",
-      "bgcolor": "#653"
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
     }
   ],
   "links": [
-    [
-      2,
-      3,
-      1,
-      4,
-      0,
-      "CLIP"
-    ],
-    [
-      3,
-      3,
-      1,
-      5,
-      0,
-      "CLIP"
-    ],
     [
       5,
       3,
@@ -634,22 +636,6 @@
       "MODEL"
     ],
     [
-      19,
-      4,
-      0,
-      17,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      20,
-      5,
-      0,
-      17,
-      2,
-      "CONDITIONING"
-    ],
-    [
       21,
       6,
       0,
@@ -688,16 +674,48 @@
       11,
       0,
       "MODEL"
+    ],
+    [
+      26,
+      3,
+      1,
+      21,
+      0,
+      "CLIP"
+    ],
+    [
+      27,
+      21,
+      0,
+      17,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      28,
+      3,
+      1,
+      20,
+      0,
+      "CLIP"
+    ],
+    [
+      29,
+      20,
+      0,
+      17,
+      1,
+      "CONDITIONING"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9090909090909091,
+      "scale": 0.7513148009015777,
       "offset": [
-        -1656.4919924329874,
-        -653.949626299373
+        -1371.1688007385715,
+        -731.3101737080049
       ]
     }
   },
