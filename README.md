@@ -1,5 +1,8 @@
 ## Updates
 
+**6/8/24**
+2 new Llava workflows to 1-at-a-time-batch engage with clip vision images to ask questions or rename images.
+
 **5/24/24**
 Cleaned up all workflows, added notes, improved IPA and outpaint workflows
 New workflows: StableCascade txt2img img2img and imageprompt, InstantID, Instructpix2pix, controlnetmulti, 

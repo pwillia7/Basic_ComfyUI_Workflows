@@ -1,0 +1,640 @@
+{
+  "last_node_id": 22,
+  "last_link_id": 17,
+  "nodes": [
+    {
+      "id": 19,
+      "type": "String",
+      "pos": [
+        1710,
+        472
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "String"
+      },
+      "widgets_values": [
+        "mx5paintsnamed/"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "LoadImageListFromDir //Inspire",
+      "pos": [
+        1131,
+        145
+      ],
+      "size": {
+        "0": 315,
+        "1": 150
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "start_index",
+          "type": "INT",
+          "link": 5,
+          "widget": {
+            "name": "start_index"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6,
+            12
+          ],
+          "shape": 6,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImageListFromDir //Inspire"
+      },
+      "widgets_values": [
+        "A:\\comfy\\ComfyUI_windows_portable_nvidia_cu121_or_cpu\\ComfyUI_windows_portable\\ComfyUI\\output\\mx5paint\\upscales",
+        1,
+        54,
+        true
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LLava Loader Simple",
+      "pos": [
+        1135,
+        337
+      ],
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CUSTOM",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CUSTOM",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLava Loader Simple"
+      },
+      "widgets_values": [
+        "llava-v1.6-mistral-7b.Q4_K_M.gguf",
+        2048,
+        27,
+        8
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LlavaClipLoader",
+      "pos": [
+        799,
+        339
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "clip",
+          "type": "CUSTOM",
+          "links": [
+            7
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LlavaClipLoader"
+      },
+      "widgets_values": [
+        "llava-v1.6-mistral-7b.Q4_K_M_mmproj-model-f16.gguf"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1873,
+        328
+      ],
+      "size": {
+        "0": 315,
+        "1": 76
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 8,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            14
+          ],
+          "shape": 6,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        " flame_dreams "
+      ]
+    },
+    {
+      "id": 15,
+      "type": "SaveImage",
+      "pos": [
+        2702,
+        307
+      ],
+      "size": {
+        "0": 315,
+        "1": 266
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 12
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 15,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "Random Number",
+      "pos": [
+        1530,
+        579
+      ],
+      "size": {
+        "0": 315,
+        "1": 194
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "NUMBER",
+          "type": "NUMBER",
+          "links": null,
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            16
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Random Number"
+      },
+      "widgets_values": [
+        "integer",
+        0,
+        100000,
+        687791463506265,
+        "randomize"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "CR Integer To String",
+      "pos": [
+        1877,
+        597
+      ],
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "int_",
+          "type": "INT",
+          "link": 16,
+          "widget": {
+            "name": "int_"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Integer To String"
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 16,
+      "type": "Text Concatenate",
+      "pos": [
+        2282,
+        648
+      ],
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 13,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 14,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 17,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            15
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "true",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 4,
+      "type": "LLavaSamplerSimple",
+      "pos": [
+        1534,
+        322
+      ],
+      "size": {
+        "0": 315,
+        "1": 102
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 6
+        },
+        {
+          "name": "model",
+          "type": "CUSTOM",
+          "link": 4
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 3,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            8
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLavaSamplerSimple"
+      },
+      "widgets_values": [
+        "",
+        0.65
+      ]
+    },
+    {
+      "id": 11,
+      "type": "PrimitiveNode",
+      "pos": [
+        894,
+        149
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            5
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "start_index"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        54,
+        "increment"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "StringConstantMultiline",
+      "pos": [
+        1097,
+        509
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            3
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringConstantMultiline"
+      },
+      "widgets_values": [
+        "Generate a unique name for this image based on its color and subject. \n\nNever output slashes or other special characters. \n\nDO not use the words \"Color\" \"Abstract\" or \"File\"\n\nOnly output the filename. Do not include the fileextension. \n\nExamples: acid_rain, coconut_breeze, moonlit_sunrise, purple_flowers.",
+        true
+      ]
+    }
+  ],
+  "links": [
+    [
+      3,
+      9,
+      0,
+      4,
+      2,
+      "STRING"
+    ],
+    [
+      4,
+      2,
+      0,
+      4,
+      1,
+      "CUSTOM"
+    ],
+    [
+      5,
+      11,
+      0,
+      10,
+      0,
+      "INT"
+    ],
+    [
+      6,
+      10,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      3,
+      0,
+      2,
+      0,
+      "CUSTOM"
+    ],
+    [
+      8,
+      4,
+      0,
+      5,
+      0,
+      "STRING"
+    ],
+    [
+      12,
+      10,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      19,
+      0,
+      16,
+      0,
+      "STRING"
+    ],
+    [
+      14,
+      5,
+      0,
+      16,
+      1,
+      "STRING"
+    ],
+    [
+      15,
+      16,
+      0,
+      15,
+      1,
+      "STRING"
+    ],
+    [
+      16,
+      21,
+      2,
+      22,
+      0,
+      "INT"
+    ],
+    [
+      17,
+      22,
+      0,
+      16,
+      2,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9090909090909091,
+      "offset": [
+        -546.241355962343,
+        21.30925640720227
+      ]
+    }
+  },
+  "version": 0.4
+}
