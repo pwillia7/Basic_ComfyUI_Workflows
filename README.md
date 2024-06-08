@@ -64,3 +64,7 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
 ![imagemerge_sdxl_unclip](./WorkflowImages/imagemerge_sdxl_unclip.png)
  ### imagemerge_unclip
 ![imagemerge_unclip](./WorkflowImages/imagemerge_unclip.png)
+### llava batch file
+![llava_batch](./WorkflowImages/llava_batch_questionphoto.png)
+### llava file namer
+![llava_file_namer](./WorkflowImages/llava_file_namer.png)
