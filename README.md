@@ -1,5 +1,8 @@
 ## Updates
 
+**10/26/24**
+Added Workflows for Flux w/ LORA, Flux LORA Autoprompt and Flux LORA Training
+
 **6/8/24**
 2 new Llava workflows to 1-at-a-time-batch engage with clip vision images to ask questions or rename images.
 
@@ -15,6 +18,13 @@ This is meant to be a good foundation to start using ComfyUI in a basic way. Sho
 
 You can import the json files or the pngs into Comfy to use the workflows. Most workflows are built for SDXL by default but can be changed easily to work with other SD versions.
 
+## Flux Workflows
+### Flux with LORA
+![fluxwithlora](./WorkflowImages/flux_lora.png)
+### Flux LORA LLM Autoprompt
+![fluxautopromptllm](./WorkflowImages/flux_lora_autoprompt.png)
+### Flux LORA Train
+![fluxloratrain](./WorkflowImages/flux_lora_train.png)
 ## Workflows
  ### txt2img
  ![txt2img](./WorkflowImages/txt2img.png)
