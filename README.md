@@ -26,6 +26,8 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
 ![fluxwithlora](./Flux/WorkflowImages/flux_lora.png)
 ### Flux LORA LLM Autoprompt
 ![fluxautopromptllm](./Flux/WorkflowImages/flux_lora_autoprompt.png)
+### Miaoshouai-Tagger/Captions
+![miaocaptions](./Flux/Training/WorkflowImages/MIAO_Captions.png)
 ### Flux LORA Train
 ![fluxloratrain](./Flux/Training/WorkflowImages/flux_lora_train.png)
 ### Flux LORA Test
