@@ -1,5 +1,8 @@
 ## Updates
 
+**1/4/24**
+Addded audio generation workflows, Added cogvideox workflows, reorganized all workflows. Improved Flux lora training and testing workflows.
+
 **10/26/24**
 Added Workflows for Flux w/ LORA, Flux LORA Autoprompt and Flux LORA Training
 
@@ -20,61 +23,68 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
 
 ## Flux Workflows
 ### Flux with LORA
-![fluxwithlora](./WorkflowImages/flux_lora.png)
+![fluxwithlora](./Flux/WorkflowImages/flux_lora.png)
 ### Flux LORA LLM Autoprompt
-![fluxautopromptllm](./WorkflowImages/flux_lora_autoprompt.png)
+![fluxautopromptllm](./Flux/WorkflowImages/flux_lora_autoprompt.png)
 ### Flux LORA Train
-![fluxloratrain](./WorkflowImages/flux_lora_train.png)
-## Workflows
- ### txt2img
- ![txt2img](./WorkflowImages/txt2img.png)
- ### txt2imglora
- ![txt2imglora](./WorkflowImages/txt2imglora.png)
- ### txt2img_stablecascade
-![txt2img_stablecascade](./WorkflowImages/txt2img_stablecascade.png)
- ### img2img
- ![img2img](./WorkflowImages/img2img.png)
- ### img2imglora
- ![img2imglora](./WorkflowImages/img2imglora.png)
- ### img2img_stablecascade
-![img2img_stablecascade](./WorkflowImages/img2img_stablecascade.png)
+![fluxloratrain](./Flux/Training/WorkflowImages/flux_lora_train.png)
+### Flux LORA Test
+![fluxloratest](./Flux/Training/WorkflowImages/loratest.png)
+
+## Stable_Cascade Workflows
+### txt2img_stablecascade
+![txt2img_stablecascade](./Stable_Cascade/WorkflowImages/txt2img_stablecascade.png)
+### img2img_stablecascade
+![img2img_stablecascade](./Stable_Cascade/WorkflowImages/img2img_stablecascade.png)
 ### imgprompt_stablecascade
-![imgprompt_stablecascade](./WorkflowImages/imgprompt_stablecascade.png)
- ### controlnet
- ![controlnet](./WorkflowImages/controlnet.png)
- ### contolnet-multi (2 controlnet models)
- ![controlnetmulti](./WorkflowImages/controlnetmulti.png)
- ### controlnet+t2i_toolkit
- ![controlnet+t2i_toolkit](./WorkflowImages/controlnet+t2i_toolkit.png)
- ### IPAdapter
- ![IPAdapter](./WorkflowImages/ipadapter.png)
- ### IPAdapter+controlnet
- ![IPAdapter+controlnet](./WorkflowImages/ipadapter+controlnet.png)
- ### t2iadapter
- ![t2iadapter](./WorkflowImages/t2iadapter.png)
- ### inpainting
- ![inpainting](./WorkflowImages/inpainting.png)
- ### outpainting
- ![outpainting](./WorkflowImages/outpainting.png)
- ### hiresfix
- ![hiresfix](./WorkflowImages/hiresfix.png)
- ### InstantID
- ![InstantID](./WorkflowImages/instandid.png)
- ### Facedetailer
- ![Facedetailer](./WorkflowImages/facedetailer.png)
- ### promptsfromfile
- ![promptsfromfile](./WorkflowImages/promptsfromfile.png)
- ### xyzplot (for sampler config. Use prompts from file for batch prompts)
- ![xyzplot](./WorkflowImages/xyzplot.png)
- ### upscaleSUPIR
- ![upscaleSUPIR](./WorkflowImages/upscaleSUPIR.png)
- ### InstructPix2Pix
-![InstructPix2Pix](./WorkflowImages/instructpix2pix.png)
- ### imagemerge_sdxl_unclip
-![imagemerge_sdxl_unclip](./WorkflowImages/imagemerge_sdxl_unclip.png)
- ### imagemerge_unclip
-![imagemerge_unclip](./WorkflowImages/imagemerge_unclip.png)
-### llava batch file
-![llava_batch](./WorkflowImages/llava_batch_questionphoto.png)
-### llava file namer
-![llava_file_namer](./WorkflowImages/llava_file_namer.png)
+![imgprompt_stablecascade](./Stable_Cascade/WorkflowImages/imgprompt_stablecascade.png)
+
+## LLM_Llava Workflows
+### LLava Batch File
+![llava_batch](./LLM_Llava/WorkflowImages/llava_batch_questionphoto.png)
+### LLava File Namer
+![llava_file_namer](./LLM_Llava/WorkflowImages/llava_file_namer.png)
+
+## Basic Workflows
+### txt2img
+![txt2img](./Basic/WorkflowImages/txt2img.png)
+### txt2img LORA
+![txt2imglora](./Basic/WorkflowImages/txt2imglora.png)
+### img2img
+![img2img](./Basic/WorkflowImages/img2img.png)
+### img2img LORA
+![img2imglora](./Basic/WorkflowImages/img2imglora.png)
+### controlnet
+![controlnet](./Basic/WorkflowImages/controlnet.png)
+### Controlnet Multi (2 controlnet models)
+![controlnetmulti](./Basic/WorkflowImages/controlnetmulti.png)
+### Controlnet + T2I Toolkit
+![controlnet+t2i_toolkit](./Basic/WorkflowImages/controlnet+t2i_toolkit.png)
+### IPAdapter
+![IPAdapter](./Basic/WorkflowImages/ipadapter.png)
+### IPAdapter + Controlnet
+![IPAdapter+controlnet](./Basic/WorkflowImages/ipadapter+controlnet.png)
+### T2I Adapter
+![t2iadapter](./Basic/WorkflowImages/t2iadapter.png)
+### Inpainting
+![inpainting](./Basic/WorkflowImages/inpainting.png)
+### Outpainting
+![outpainting](./Basic/WorkflowImages/outpainting.png)
+### Hires Fix
+![hiresfix](./Basic/WorkflowImages/hiresfix.png)
+### Instant ID
+![InstantID](./Basic/WorkflowImages/instantid.png)
+### Face Detailer
+![Facedetailer](./Basic/WorkflowImages/facedetailer.png)
+### Prompts from File
+![promptsfromfile](./Basic/WorkflowImages/promptsfromfile.png)
+### XYZ Plot (for sampler config; use prompts from file for batch prompts)
+![xyzplot](./Basic/WorkflowImages/xyzplot.png)
+### Upscale SUPIR
+![upscaleSUPIR](./Basic/WorkflowImages/upscaleSUPIR.png)
+### InstructPix2Pix
+![InstructPix2Pix](./Basic/WorkflowImages/instructpix2pix.png)
+### Image Merge SDXL Unclip
+![imagemerge_sdxl_unclip](./Basic/WorkflowImages/imagemerge_sdxl_unclip.png)
+### Image Merge Unclip
+![imagemerge_unclip](./Basic/WorkflowImages/imagemerge_unclip.png)
