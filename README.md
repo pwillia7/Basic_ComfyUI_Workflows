@@ -1,7 +1,7 @@
 ## Updates
 
 **1/4/24**
-Addded audio generation workflows, reorganized all workflows. Improved Flux lora testing workflows.
+Addded audio generation workflows, reorganized all workflows. Improved Flux lora testing workflows. Added Miaoshouai-Tagger workflow for LORA training.
 
 **10/26/24**
 Added Workflows for Flux w/ LORA, Flux LORA Autoprompt and Flux LORA Training
