@@ -1,7 +1,7 @@
 ## Updates
 
 **1/4/24**
-Addded audio generation workflows, Added cogvideox workflows, reorganized all workflows. Improved Flux lora training and testing workflows.
+Addded audio generation workflows, reorganized all workflows. Improved Flux lora testing workflows.
 
 **10/26/24**
 Added Workflows for Flux w/ LORA, Flux LORA Autoprompt and Flux LORA Training
@@ -33,11 +33,11 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
 
 ## Stable_Cascade Workflows
 ### txt2img_stablecascade
-![txt2img_stablecascade](./Stable_Cascade/WorkflowImages/txt2img_stablecascade.png)
+![txt2img_stablecascade](./Stable_Cascade/WorkflowImages/stable-cascade-txt2img.png)
 ### img2img_stablecascade
-![img2img_stablecascade](./Stable_Cascade/WorkflowImages/img2img_stablecascade.png)
+![img2img_stablecascade](./Stable_Cascade/WorkflowImages/Stable-Cascade-image-to-image.png)
 ### imgprompt_stablecascade
-![imgprompt_stablecascade](./Stable_Cascade/WorkflowImages/imgprompt_stablecascade.png)
+![imgprompt_stablecascade](./Stable_Cascade/WorkflowImages/Stable-Cascade-Image-Prompt.png)
 
 ## LLM_Llava Workflows
 ### LLava Batch File
@@ -73,7 +73,7 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
 ### Hires Fix
 ![hiresfix](./Basic/WorkflowImages/hiresfix.png)
 ### Instant ID
-![InstantID](./Basic/WorkflowImages/instantid.png)
+![InstantID](./Basic/WorkflowImages/instandid.png)
 ### Face Detailer
 ![Facedetailer](./Basic/WorkflowImages/facedetailer.png)
 ### Prompts from File
