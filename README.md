@@ -1,7 +1,9 @@
 ## Updates
+**11/8/2024**
+Added Flux Character Maker
 
-**1/4/24**
-Addded audio generation workflows, reorganized all workflows. Improved Flux lora testing workflows. Added Miaoshouai-Tagger workflow for LORA training.
+**11/4/24**
+Reorganized all workflows. Improved Flux lora testing workflows. Added Miaoshouai-Tagger workflow for LORA training.
 
 **10/26/24**
 Added Workflows for Flux w/ LORA, Flux LORA Autoprompt and Flux LORA Training
@@ -32,7 +34,8 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
 ![fluxloratrain](./Flux/Training/WorkflowImages/flux_lora_train.png)
 ### Flux LORA Test
 ![fluxloratest](./Flux/Training/WorkflowImages/loratest.png)
-
+### Flux LORA Character Sheet Maker
+![fluxcharactersheet](./Flux/WorkflowImages/flux_character_sheet.png)
 ## Stable_Cascade Workflows
 ### txt2img_stablecascade
 ![txt2img_stablecascade](./Stable_Cascade/WorkflowImages/stable-cascade-txt2img.png)
