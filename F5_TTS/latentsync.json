@@ -1,0 +1,409 @@
+{
+  "last_node_id": 51,
+  "last_link_id": 61,
+  "nodes": [
+    {
+      "id": 51,
+      "type": "Reroute",
+      "pos": [
+        765.86328125,
+        886.9187622070312
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 60
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "AUDIO",
+          "links": [
+            61
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 50,
+      "type": "D_VideoLengthAdjuster",
+      "pos": [
+        180.3147430419922,
+        710.7721557617188
+      ],
+      "size": [
+        219.21046447753906,
+        78
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 53
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            55
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            57
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "D_VideoLengthAdjuster"
+      },
+      "widgets_values": [
+        "pingpong"
+      ]
+    },
+    {
+      "id": 41,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        919.8896484375,
+        730.9093627929688
+      ],
+      "size": [
+        373.38238525390625,
+        583.5882568359375
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 40
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 61,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 25,
+        "loop_count": 0,
+        "filename_prefix": "latentsync",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "latentsync_00015-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 25,
+            "workflow": "latentsync_00015.png",
+            "fullpath": "A:\\comfy\\ComfyUI_windows_portable_nvidia_cu121_or_cpu\\ComfyUI_windows_portable\\ComfyUI\\output\\latentsync_00015-audio.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 37,
+      "type": "LoadAudio",
+      "pos": [
+        150.10870361328125,
+        873.6824951171875
+      ],
+      "size": [
+        315,
+        124
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            54,
+            60
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "womantest.flac",
+        null,
+        ""
+      ]
+    },
+    {
+      "id": 43,
+      "type": "D_LatentSyncNode",
+      "pos": [
+        539.2880859375,
+        721.6798095703125
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 55
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 57
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            40
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "D_LatentSyncNode"
+      },
+      "widgets_values": [
+        834,
+        "fixed"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        -216.75613403320312,
+        693.1519775390625
+      ],
+      "size": [
+        336.5584716796875,
+        487.0389709472656
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            53
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": [],
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "womantest_00009.mp4",
+        "force_rate": 25,
+        "force_size": "Disabled",
+        "custom_width": 512,
+        "custom_height": 512,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 25,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1,
+            "filename": "womantest_00009.mp4",
+            "type": "input",
+            "format": "video/mp4"
+          },
+          "muted": false
+        }
+      }
+    }
+  ],
+  "links": [
+    [
+      40,
+      43,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      53,
+      40,
+      0,
+      50,
+      0,
+      "IMAGE"
+    ],
+    [
+      54,
+      37,
+      0,
+      50,
+      1,
+      "AUDIO"
+    ],
+    [
+      55,
+      50,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      57,
+      50,
+      1,
+      43,
+      1,
+      "AUDIO"
+    ],
+    [
+      60,
+      37,
+      0,
+      51,
+      0,
+      "*"
+    ],
+    [
+      61,
+      51,
+      0,
+      41,
+      1,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1918176537727314,
+      "offset": [
+        239.00071846202815,
+        -799.6620769432878
+      ]
+    },
+    "workspace_info": {
+      "id": "pdbYnk386LvXhcCuOca6c",
+      "saveLock": false,
+      "cloudID": null,
+      "coverMediaPath": null
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}

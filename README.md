@@ -1,4 +1,7 @@
 ## Updates
+
+**1/5/2025**
+Added F5 TTS Workflows. See here: https://youtu.be/SbRAPKAvl_U
 **11/8/2024**
 Added Flux Character Maker
 

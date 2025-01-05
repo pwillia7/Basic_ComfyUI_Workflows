@@ -1,0 +1,369 @@
+{
+  "last_node_id": 38,
+  "last_link_id": 45,
+  "nodes": [
+    {
+      "id": 29,
+      "type": "Note",
+      "pos": [
+        3157,
+        1346
+      ],
+      "size": [
+        310.20733642578125,
+        108.06315612792969
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Change steps, cfg, sampler_name and scheduler to match model guidelines.\n\nChange denoise strength to choose how much of original image is present in mask."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 36,
+      "type": "INPAINT_InpaintWithModel",
+      "pos": [
+        2174,
+        1557
+      ],
+      "size": [
+        355.20001220703125,
+        142
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "inpaint_model",
+          "type": "INPAINT_MODEL",
+          "link": 39
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 45
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 41
+        },
+        {
+          "name": "optional_upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            42
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "INPAINT_InpaintWithModel"
+      },
+      "widgets_values": [
+        1068479083070585,
+        "randomize"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "INPAINT_LoadInpaintModel",
+      "pos": [
+        2224,
+        1418
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INPAINT_MODEL",
+          "type": "INPAINT_MODEL",
+          "links": [
+            39
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "INPAINT_LoadInpaintModel"
+      },
+      "widgets_values": [
+        "MAT_Places512_G_fp16.safetensors"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "LoadImageListFromDir //Inspire",
+      "pos": [
+        1824,
+        1138
+      ],
+      "size": [
+        428.4000244140625,
+        170
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "start_index",
+          "type": "INT",
+          "link": 31,
+          "widget": {
+            "name": "start_index"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 6
+        },
+        {
+          "name": "FILE PATH",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImageListFromDir //Inspire"
+      },
+      "widgets_values": [
+        "A:\\scripts\\youtubeScreenshots\\youtube_images\\sonywatermark",
+        1,
+        6,
+        true
+      ]
+    },
+    {
+      "id": 38,
+      "type": "PreviewImage",
+      "pos": [
+        2502,
+        1118
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 44
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": [
+        2737,
+        1348
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 42
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Sony_watermark_remove"
+      ]
+    },
+    {
+      "id": 33,
+      "type": "PrimitiveNode",
+      "pos": [
+        1530,
+        1157
+      ],
+      "size": [
+        210,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            31
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "start_index"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        6,
+        "increment"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": [
+        1739,
+        1407
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            44,
+            45
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            41
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-883737.600000143.png [input]",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      31,
+      33,
+      0,
+      32,
+      0,
+      "INT"
+    ],
+    [
+      39,
+      37,
+      0,
+      36,
+      0,
+      "INPAINT_MODEL"
+    ],
+    [
+      41,
+      10,
+      1,
+      36,
+      2,
+      "MASK"
+    ],
+    [
+      42,
+      36,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      44,
+      10,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      45,
+      10,
+      0,
+      36,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.4420993610650052,
+      "offset": [
+        -1323.8570901535643,
+        -1161.0794729980516
+      ]
+    }
+  },
+  "version": 0.4
+}
