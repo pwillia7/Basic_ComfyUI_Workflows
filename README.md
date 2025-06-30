@@ -1,22 +1,10 @@
 ## Updates
-
+**6/30/2025**
+Added Flux Kontext Ultimate Workflow.
 **1/5/2025**
 Added F5 TTS Workflows. See here: https://youtu.be/SbRAPKAvl_U
 **11/8/2024**
 Added Flux Character Maker
-
-**11/4/24**
-Reorganized all workflows. Improved Flux lora testing workflows. Added Miaoshouai-Tagger workflow for LORA training.
-
-**10/26/24**
-Added Workflows for Flux w/ LORA, Flux LORA Autoprompt and Flux LORA Training
-
-**6/8/24**
-2 new Llava workflows to 1-at-a-time-batch engage with clip vision images to ask questions or rename images.
-
-**5/24/24**
-Cleaned up all workflows, added notes, improved IPA and outpaint workflows, changed clip to SDXLclip
-
 
 New workflows: StableCascade txt2img img2img and imageprompt, InstantID, Instructpix2pix, controlnetmulti, imagemerge_sdxl_unclip, imagemerge_unclip, t2iadapter, controlnet+t2i_toolkit 
 
@@ -27,6 +15,8 @@ This is meant to be a good foundation to start using ComfyUI in a basic way. Sho
 You can import the json files or the pngs into Comfy to use the workflows. Most workflows are built for SDXL by default but can be changed easily to work with other SD versions.
 
 ## Flux Workflows
+### Flux Kontext Ultimate Workflow
+![fluxultimate](./Flux/WorkflowImages/flux_kontext_Ultimate.png)
 ### Flux with LORA
 ![fluxwithlora](./Flux/WorkflowImages/flux_lora.png)
 ### Flux LORA LLM Autoprompt
