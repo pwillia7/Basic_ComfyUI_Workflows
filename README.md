@@ -1,5 +1,5 @@
 If you find these helpful, consider buying me a coffee:
-buymeacoffee.com/reticulated
+https://buymeacoffee.com/reticulated
 
 
 ## Updates
