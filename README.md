@@ -1,18 +1,29 @@
+If you find these helpful, consider buying me a coffee:
+buymeacoffee.com/reticulated
+
+
 ## Updates
+**8/1/2025**
+Added Video workflows for wan 2.2, upscale, and interpolation
 **6/30/2025**
 Added Flux Kontext Ultimate Workflow.
 **1/5/2025**
 Added F5 TTS Workflows. See here: https://youtu.be/SbRAPKAvl_U
-**11/8/2024**
-Added Flux Character Maker
-
-New workflows: StableCascade txt2img img2img and imageprompt, InstantID, Instructpix2pix, controlnetmulti, imagemerge_sdxl_unclip, imagemerge_unclip, t2iadapter, controlnet+t2i_toolkit 
 
 ## About
 
 This is meant to be a good foundation to start using ComfyUI in a basic way. Should be familiar to those coming from A1111. 
 
 You can import the json files or the pngs into Comfy to use the workflows. Most workflows are built for SDXL by default but can be changed easily to work with other SD versions.
+
+## Video
+### Wan 2.2 GGUF + lightx2v
+![wan22gguf](./Video/wan22_lx2v_gguf.png)
+### Interpolate GIMM-VFI
+![interpolate](./Video/video_interpolate.png)
+### Video Upscale
+![upscale](./Video/video_upscale.png)
+
 
 ## Flux Workflows
 ### Flux Kontext Ultimate Workflow
