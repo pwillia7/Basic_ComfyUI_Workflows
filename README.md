@@ -3,6 +3,8 @@ https://buymeacoffee.com/reticulated
 
 
 ## Updates
+**8/2/2025**
+Basic WAN 2.2 txt2img workflow
 **8/1/2025**
 Added Video workflows for wan 2.2, upscale, and interpolation
 **6/30/2025**
@@ -55,6 +57,8 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
 ![llava_file_namer](./LLM_Llava/WorkflowImages/llava_file_namer.png)
 
 ## Basic Workflows
+### WAN2.2 txt2img
+![wan22txt2img](./Basic/WorkflowImages/wan_2_2_t2i.png)
 ### txt2img
 ![txt2img](./Basic/WorkflowImages/txt2img.png)
 ### txt2img LORA
