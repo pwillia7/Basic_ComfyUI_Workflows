@@ -1,0 +1,165 @@
+{
+  "last_node_id": 38,
+  "last_link_id": 26,
+  "nodes": [
+    {
+      "id": 15,
+      "type": "F5TTSAudio",
+      "pos": [
+        346.3139953613281,
+        -330.6935119628906
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": 0,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            25,
+            26
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "F5TTSAudio"
+      },
+      "widgets_values": [
+        "elfLady.wav",
+        "Now, I’ve always wanted an easier to use frontend experience for my image to image workflows. Let me show you how to use an open web u-i tool to easily send any image U-R-L to comfie.",
+        14,
+        "fixed",
+        "model://F5TTS_Base.pt"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "SaveAudio",
+      "pos": [
+        862.8087158203125,
+        -213.23985290527344
+      ],
+      "size": [
+        315,
+        100
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 26
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "audio/techno",
+        null
+      ]
+    },
+    {
+      "id": 37,
+      "type": "PreviewAudio",
+      "pos": [
+        864.40869140625,
+        -349.69659423828125
+      ],
+      "size": [
+        315,
+        76
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 25
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": [
+        null
+      ]
+    }
+  ],
+  "links": [
+    [
+      25,
+      15,
+      0,
+      37,
+      0,
+      "AUDIO"
+    ],
+    [
+      26,
+      15,
+      0,
+      38,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 3,
+      "title": "Audio EN",
+      "bounding": [
+        329.2184753417969,
+        -431.1173095703125,
+        921.3973999023438,
+        344.56597900390625
+      ],
+      "color": "#3f789e",
+      "font_size": 22,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "Audio FR",
+      "bounding": [
+        311.5028991699219,
+        -1443.1253662109375,
+        1027.4000244140625,
+        399.2999572753906
+      ],
+      "color": "#3f789e",
+      "font_size": 22,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9849732675807631,
+      "offset": [
+        108.71079295144611,
+        606.6068397004395
+      ]
+    }
+  },
+  "version": 0.4
+}

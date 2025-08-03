@@ -1,0 +1,1126 @@
+{
+  "last_node_id": 67,
+  "last_link_id": 77,
+  "nodes": [
+    {
+      "id": 40,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 138,
+        "1": -68
+      },
+      "size": {
+        "0": 396.2091369628906,
+        "1": 76
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 55,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "title": "File Name Display",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "04 - 2df04822-ac0e-11ed-8d2f-02420a00012e"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 5,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 136,
+        "1": 54
+      },
+      "size": {
+        "0": 392.1591491699219,
+        "1": 143.47418212890625
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 58,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "title": "Caption Display",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "a digital artwork in a pixelated, retro video game style, it depicts a fantastical scene set against a backdrop of a dark, cloudy sky with a gradient of blue and purple hues, the central focus is a bright, glowing yellow creature resembling a bee or a bee, with its arms raised and legs spread wide, standing in the center of the image, the creature's head is tilted upwards, with a small, glowing orb at its center, resembling a sun or a star, above its head, there is a large, purple sign with the word lucas in bold, white letters, the sign reads arts in a smaller, bold font, the background consists of a series of swirling clouds in shades of grey and purple, creating a sense of depth and mystery, the overall color palette is dominated by blues, purples, and grays, with the purple sign standing out against the dark sky, the artwork is highly detailed, with clean lines and a polished finish, typical of high-quality digital art"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 43,
+      "type": "PreviewImage",
+      "pos": {
+        "0": -268,
+        "1": -187
+      },
+      "size": {
+        "0": 364.54913330078125,
+        "1": 377.84417724609375
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 47
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 52,
+      "type": "Text Find and Replace",
+      "pos": {
+        "0": 795.969482421875,
+        "1": 88.24412536621094
+      },
+      "size": {
+        "0": 317.4000244140625,
+        "1": 166
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 53,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result_text",
+          "type": "STRING",
+          "links": [
+            54
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "replacement_count_number",
+          "type": "NUMBER",
+          "links": null
+        },
+        {
+          "name": "replacement_count_float",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "replacement_count_int",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Find and Replace"
+      },
+      "widgets_values": [
+        "",
+        ".jpg",
+        ""
+      ]
+    },
+    {
+      "id": 53,
+      "type": "Text Find and Replace",
+      "pos": {
+        "0": 794.969482421875,
+        "1": 152.244140625
+      },
+      "size": {
+        "0": 317.4000244140625,
+        "1": 166
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 54,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result_text",
+          "type": "STRING",
+          "links": [
+            55,
+            56
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "replacement_count_number",
+          "type": "NUMBER",
+          "links": null
+        },
+        {
+          "name": "replacement_count_float",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "replacement_count_int",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Find and Replace"
+      },
+      "widgets_values": [
+        "",
+        ".png",
+        ""
+      ]
+    },
+    {
+      "id": 55,
+      "type": "Miaoshouai_Tagger",
+      "pos": {
+        "0": 1028,
+        "1": -181
+      },
+      "size": {
+        "0": 400,
+        "1": 400
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 57,
+          "shape": 7
+        },
+        {
+          "name": "filenames",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "filenames"
+          },
+          "shape": 7
+        },
+        {
+          "name": "captions",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "captions"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 6
+        },
+        {
+          "name": "filenames",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        },
+        {
+          "name": "captions",
+          "type": "STRING",
+          "links": [
+            58,
+            63
+          ],
+          "slot_index": 2,
+          "shape": 6
+        },
+        {
+          "name": "folder_path",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Miaoshouai_Tagger"
+      },
+      "widgets_values": [
+        "promptgen_base_v1.5",
+        "Path to your image folder",
+        "mixed",
+        1024,
+        4,
+        "never",
+        "",
+        "",
+        "",
+        "",
+        "replace_tags eg:search1:replace1;search2:replace2"
+      ]
+    },
+    {
+      "id": 66,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 32,
+        "1": 257
+      },
+      "size": [
+        253.73145439044686,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            73
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string1"
+          }
+        }
+      ],
+      "title": "Output Path",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "./ComfyUI/output/LoraCaptions/fullthrottle/"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 64,
+      "type": "JoinStrings",
+      "pos": {
+        "0": 389,
+        "1": 389
+      },
+      "size": [
+        315,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string1",
+          "type": "STRING",
+          "link": 73,
+          "widget": {
+            "name": "string1"
+          }
+        },
+        {
+          "name": "string2",
+          "type": "STRING",
+          "link": 72,
+          "widget": {
+            "name": "string2"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            74
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JoinStrings"
+      },
+      "widgets_values": [
+        "./ComfyUI/output/LoraCaptions/fullthrottle/",
+        "587x440",
+        ""
+      ]
+    },
+    {
+      "id": 38,
+      "type": "Save Text File",
+      "pos": {
+        "0": 1267,
+        "1": 312
+      },
+      "size": {
+        "0": 315,
+        "1": 226
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 63,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 56,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        },
+        {
+          "name": "path",
+          "type": "STRING",
+          "link": 74,
+          "widget": {
+            "name": "path"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Save Text File"
+      },
+      "widgets_values": [
+        "",
+        "./ComfyUI/output/LoraCaptions/fullthrottle/",
+        "ComfyUI",
+        "",
+        0,
+        ".txt",
+        "utf-8",
+        ""
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 57,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -277,
+        "1": 244
+      },
+      "size": {
+        "0": 271.30712890625,
+        "1": 75.75718688964844
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            59,
+            60
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "directory"
+          }
+        }
+      ],
+      "title": "Input Image Directory",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "A:\\comfy\\ComfyUI_windows_portable_nvidia_cu121_or_cpu\\ComfyUI_windows_portable\\ComfyUI\\datasets\\fullthrottle\\587x440"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 65,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -279,
+        "1": 361
+      },
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            72
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string2"
+          }
+        }
+      ],
+      "title": "Dimensions",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "587x440"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 41,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 130,
+        "1": -186
+      },
+      "size": {
+        "0": 403.0991516113281,
+        "1": 76
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 46,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "title": "File Path Display",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "A:\\comfy\\ComfyUI_windows_portable_nvidia_cu121_or_cpu\\ComfyUI_windows_portable\\ComfyUI\\datasets\\fullthrottle\\587x440\\04 - 2df04822-ac0e-11ed-8d2f-02420a00012e.png"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 11,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 311,
+        "1": 247
+      },
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            45
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "start_index"
+          }
+        }
+      ],
+      "title": "Count",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        0,
+        "increment"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 39,
+      "type": "Text Find and Replace",
+      "pos": {
+        "0": 798,
+        "1": 29
+      },
+      "size": {
+        "0": 317.4000244140625,
+        "1": 166
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 48,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "find",
+          "type": "STRING",
+          "link": 77,
+          "widget": {
+            "name": "find"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result_text",
+          "type": "STRING",
+          "links": [
+            53
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "replacement_count_number",
+          "type": "NUMBER",
+          "links": null
+        },
+        {
+          "name": "replacement_count_float",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "replacement_count_int",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Find and Replace"
+      },
+      "widgets_values": [
+        "",
+        "A\\:\\\\Lora_Images\\\\320x200\\\\",
+        ""
+      ]
+    },
+    {
+      "id": 62,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 767,
+        "1": -33
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            66
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string2"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "\\\\"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "LoadImageListFromDir //Inspire",
+      "pos": {
+        "0": 769,
+        "1": -166
+      },
+      "size": {
+        "0": 428.4000244140625,
+        "1": 170
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "start_index",
+          "type": "INT",
+          "link": 45,
+          "widget": {
+            "name": "start_index"
+          },
+          "shape": 7
+        },
+        {
+          "name": "directory",
+          "type": "STRING",
+          "link": 59,
+          "widget": {
+            "name": "directory"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            47,
+            57
+          ],
+          "slot_index": 0,
+          "shape": 6
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 6
+        },
+        {
+          "name": "FILE PATH",
+          "type": "STRING",
+          "links": [
+            46,
+            48
+          ],
+          "slot_index": 2,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImageListFromDir //Inspire"
+      },
+      "widgets_values": [
+        "A:\\comfy\\ComfyUI_windows_portable_nvidia_cu121_or_cpu\\ComfyUI_windows_portable\\ComfyUI\\datasets\\fullthrottle\\587x440",
+        1,
+        0,
+        true
+      ]
+    },
+    {
+      "id": 61,
+      "type": "JoinStrings",
+      "pos": {
+        "0": 898,
+        "1": -31
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string1",
+          "type": "STRING",
+          "link": 65,
+          "widget": {
+            "name": "string1"
+          }
+        },
+        {
+          "name": "string2",
+          "type": "STRING",
+          "link": 66,
+          "widget": {
+            "name": "string2"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            77
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JoinStrings"
+      },
+      "widgets_values": [
+        "",
+        "\\\\",
+        ""
+      ]
+    },
+    {
+      "id": 59,
+      "type": "Text Find and Replace",
+      "pos": {
+        "0": 799,
+        "1": -84
+      },
+      "size": {
+        "0": 245.1999969482422,
+        "1": 142
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 60,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result_text",
+          "type": "STRING",
+          "links": [
+            65
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "replacement_count_number",
+          "type": "NUMBER",
+          "links": null
+        },
+        {
+          "name": "replacement_count_float",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "replacement_count_int",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Find and Replace"
+      },
+      "widgets_values": [
+        "A:\\comfy\\ComfyUI_windows_portable_nvidia_cu121_or_cpu\\ComfyUI_windows_portable\\ComfyUI\\datasets\\fullthrottle\\587x440",
+        "\\\\",
+        "\\\\\\\\"
+      ]
+    }
+  ],
+  "links": [
+    [
+      45,
+      11,
+      0,
+      46,
+      0,
+      "INT"
+    ],
+    [
+      46,
+      46,
+      2,
+      41,
+      0,
+      "STRING"
+    ],
+    [
+      47,
+      46,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      48,
+      46,
+      2,
+      39,
+      0,
+      "STRING"
+    ],
+    [
+      53,
+      39,
+      0,
+      52,
+      0,
+      "STRING"
+    ],
+    [
+      54,
+      52,
+      0,
+      53,
+      0,
+      "STRING"
+    ],
+    [
+      55,
+      53,
+      0,
+      40,
+      0,
+      "STRING"
+    ],
+    [
+      56,
+      53,
+      0,
+      38,
+      1,
+      "STRING"
+    ],
+    [
+      57,
+      46,
+      0,
+      55,
+      0,
+      "IMAGE"
+    ],
+    [
+      58,
+      55,
+      2,
+      5,
+      0,
+      "STRING"
+    ],
+    [
+      59,
+      57,
+      0,
+      46,
+      1,
+      "STRING"
+    ],
+    [
+      60,
+      57,
+      0,
+      59,
+      0,
+      "STRING"
+    ],
+    [
+      63,
+      55,
+      2,
+      38,
+      0,
+      "STRING"
+    ],
+    [
+      65,
+      59,
+      0,
+      61,
+      0,
+      "STRING"
+    ],
+    [
+      66,
+      62,
+      0,
+      61,
+      1,
+      "STRING"
+    ],
+    [
+      72,
+      65,
+      0,
+      64,
+      1,
+      "STRING"
+    ],
+    [
+      73,
+      66,
+      0,
+      64,
+      0,
+      "STRING"
+    ],
+    [
+      74,
+      64,
+      0,
+      38,
+      2,
+      "STRING"
+    ],
+    [
+      77,
+      61,
+      0,
+      39,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Tagger",
+      "bounding": [
+        757,
+        -252,
+        681,
+        574
+      ],
+      "color": "#3f789e",
+      "font_size": 22,
+      "flags": {}
+    },
+    {
+      "title": "Controls",
+      "bounding": [
+        -291,
+        -258,
+        835,
+        687
+      ],
+      "color": "#8A8",
+      "font_size": 22,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0834705943388394,
+      "offset": [
+        709.3528750698413,
+        333.04778121807254
+      ]
+    }
+  },
+  "version": 0.4
+}
