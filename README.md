@@ -20,11 +20,11 @@ You can import the json files or the pngs into Comfy to use the workflows. Most 
 
 ## Video
 ### Wan 2.2 GGUF + lightx2v
-![wan22gguf](./Video/wan22_lx2v_gguf.png)
+![wan22gguf](./Video/WorkflowImages/wan22_lx2v_gguf.png)
 ### Interpolate GIMM-VFI
-![interpolate](./Video/video_interpolate.png)
+![interpolate](./Video/WorkflowImages/video_interpolate.png)
 ### Video Upscale
-![upscale](./Video/video_upscale.png)
+![upscale](./Video/WorkflowImages/video_upscale.png)
 
 
 ## Flux Workflows
